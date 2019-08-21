@@ -1,0 +1,7 @@
+Equipment Loan Requirements
+
+-Front End
+
+-Database
+
+-Mobile Compatibility
