@@ -1,0 +1,9 @@
+TEAM HYPE
+Zachary Bax
+Edward Koch
+Brandon McCurray
+Lucas Winkleman
+
+08/21/2019
+-Zach spoke with the Customer, they are interested in moving forward
+-Setup GitHub Respository and connected through Visual Studio Community Edition
