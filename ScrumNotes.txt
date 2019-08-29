@@ -1,5 +1,6 @@
 TEAM HYPE
 Zachary Bax
+Paul Fish
 Edward Koch
 Brandon McCurray
 Lucas Winkleman
@@ -8,3 +9,22 @@ Lucas Winkleman
 -Zach spoke with the Customer, they are interested in moving forward
 -Setup GitHub Respository and connected through Visual Studio Community Edition
 -Created VS .NET Project and pushed to Git Repo
+
+08/29/2019
+-Met with team during class to refine requirements
+-Customer = Capable Kids and Families
+-General
+  -Like a Library Website
+  -Check-In, Check-Out functionality
+-USERS
+  -Users Sign in and request items
+  -Keep track of items status
+  -Link to items
+  -Users to see list of items that are checked Community
+-ADMIN
+  -Admins can add comments to items
+  -Automated reminder emails
+  -Archive Items to hide from public
+  -Queries on historical Data
+-Future Ideas
+  -Institute system across all Missouri Offices
