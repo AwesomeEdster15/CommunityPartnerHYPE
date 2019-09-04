@@ -1,7 +1,33 @@
 Equipment Loan Requirements
 
--Front End
+-General
+  -Like a Library Website
+  -Check-In, Check-Out functionality
+-USERS
+  -Users Sign in and request items
+  -Keep track of items status
+  -Link to items
+  -Users to see list of items that are checked Community
+-ADMIN
+  -Admins can add comments to items
+  -Automated reminder emails
+  -Archive Items to hide from public
+  -Queries on historical Data
+-Future Ideas
+  -Institute system across all Missouri Offices
+  -Mobile Application
 
--Database
+-Core Functionality - By October
+  -Log in for Admins and Patrons
+  -Patrons can view Items and make Requests
+  -Admins can mark Items as Checked-In or Checked-Out
 
--Mobile Compatibility
+-Other Features
+  -Offline Access
+  -SYSTEM
+    -Automated Email reminders
+  -ADMIN
+    -Run Reports
+      -Usage History
+      -Cost
+    -Archive Items

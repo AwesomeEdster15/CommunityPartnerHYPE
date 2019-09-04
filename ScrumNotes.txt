@@ -28,3 +28,21 @@ Lucas Winkleman
   -Queries on historical Data
 -Future Ideas
   -Institute system across all Missouri Offices
+
+09/04/2019
+-Discuss Core Features
+-Decide on Plan of Attack
+-Currently Hosted on WordPress
+  -Can use a separate domain if needed
+-Using Visual Studio with VS Community
+-Use bootstrap for sizing and views
+-Tentative Assignments:
+  -Web Design: Brenden & Paul
+    -Focus: User Friendly
+  -Log In/Out: Brandon & Edward
+    -Focus: User Database & Security
+  -Data Model: Zach
+    -Focus: Fields Needed
+  -Database for Equipment: Lucas
+    -Focus: Variable Types, work with Zach
+  -Figure Out GIT Issues: Zach
