@@ -42,9 +42,9 @@ Lucas Winkleman
   -Log In/Out: Brandon & Edward
     -Focus: User Database & Security
   -Data Model: Zach
-    -Focus: Fields Needed
+    -Focus: Fields Needed, erdplus.com
   -Database for Equipment: Lucas
-    -Focus: Variable Types, work with Zach
+    -Focus: Variable Types, work with Zach, erdplus.com
   -Figure Out GIT Issues: Zach
 -Until Next Time - For Everyone!
   -Learn C# and Visual Studio
