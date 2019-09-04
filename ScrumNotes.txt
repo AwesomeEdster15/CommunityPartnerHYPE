@@ -46,7 +46,7 @@ Lucas Winkleman
   -Database for Equipment: Lucas
     -Focus: Variable Types, work with Zach
   -Figure Out GIT Issues: Zach
--Until Next Time
+-Until Next Time - For Everyone!
   -Learn C# and Visual Studio
   -Install Jetbrains ReSharper for .NET Apps
   -Learn about Git Branching
