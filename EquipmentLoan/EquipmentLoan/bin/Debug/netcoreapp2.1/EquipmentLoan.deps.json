@@ -1,7 +1,11 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
+<<<<<<< Updated upstream
     "signature": "e071b1a7c9d575b1b3d9ba6c9a1be1d9c6701ca2"
+=======
+    "signature": "ec7f411d5c3ad7639400ede0e1ce648c3d46ee10"
+>>>>>>> Stashed changes
   },
   "compilationOptions": {
     "defines": [
@@ -26,7 +30,12 @@
         "dependencies": {
           "Microsoft.AspNetCore.App": "2.1.1",
           "Microsoft.AspNetCore.Razor.Design": "2.1.2",
+<<<<<<< Updated upstream
           "Microsoft.NETCore.App": "2.1.0"
+=======
+          "Microsoft.NETCore.App": "2.1.0",
+          "Serilog": "2.8.0"
+>>>>>>> Stashed changes
         },
         "runtime": {
           "EquipmentLoan.dll": {}
@@ -207,6 +216,23 @@
           "Microsoft.NETCore.Platforms": "2.1.0"
         }
       },
+<<<<<<< Updated upstream
+=======
+      "Serilog/2.8.0": {
+        "dependencies": {
+          "System.Collections.NonGeneric": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Serilog.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.8.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Serilog.dll": {}
+        }
+      },
+>>>>>>> Stashed changes
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
         "dependencies": {
           "Newtonsoft.Json": "11.0.2",
@@ -3211,6 +3237,16 @@
       "path": "netstandard.library/2.0.3",
       "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
     },
+<<<<<<< Updated upstream
+=======
+    "Serilog/2.8.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zjuKXW5IQws43IHX7VY9nURsaCiBYh2kyJCWLJRSWrTsx/syBKHV8MibWe2A+QH3Er0AiwA+OJmO3DhFJDY1+A==",
+      "path": "serilog/2.8.0",
+      "hashPath": "serilog.2.8.0.nupkg.sha512"
+    },
+>>>>>>> Stashed changes
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "type": "package",
       "serviceable": true,

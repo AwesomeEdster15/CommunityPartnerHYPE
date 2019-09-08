@@ -1,30 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\eddie\\Documents\\School\\19_Senior\\SeniorDesignProject\\EquipmentLoan\\EquipmentLoan\\EquipmentLoan.csproj": {}
+    "/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/EquipmentLoan.csproj": {}
   },
   "projects": {
-    "C:\\Users\\eddie\\Documents\\School\\19_Senior\\SeniorDesignProject\\EquipmentLoan\\EquipmentLoan\\EquipmentLoan.csproj": {
+    "/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/EquipmentLoan.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\eddie\\Documents\\School\\19_Senior\\SeniorDesignProject\\EquipmentLoan\\EquipmentLoan\\EquipmentLoan.csproj",
+        "projectUniqueName": "/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/EquipmentLoan.csproj",
         "projectName": "EquipmentLoan",
-        "projectPath": "C:\\Users\\eddie\\Documents\\School\\19_Senior\\SeniorDesignProject\\EquipmentLoan\\EquipmentLoan\\EquipmentLoan.csproj",
-        "packagesPath": "C:\\Users\\eddie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\eddie\\Documents\\School\\19_Senior\\SeniorDesignProject\\EquipmentLoan\\EquipmentLoan\\obj\\",
+        "projectPath": "/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/EquipmentLoan.csproj",
+        "packagesPath": "/Users/zach/.nuget/packages/",
+        "outputPath": "/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\eddie\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/zach/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -56,6 +54,10 @@
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[2.8.0, )"
             }
           },
           "imports": [

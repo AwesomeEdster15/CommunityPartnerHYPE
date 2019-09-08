@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 C:\Users\eddie\Documents\School\19_Senior\SeniorDesignProject\EquipmentLoan\EquipmentLoan\bin\Debug\netcoreapp2.1\EquipmentLoan.deps.json
 C:\Users\eddie\Documents\School\19_Senior\SeniorDesignProject\EquipmentLoan\EquipmentLoan\bin\Debug\netcoreapp2.1\EquipmentLoan.runtimeconfig.json
 C:\Users\eddie\Documents\School\19_Senior\SeniorDesignProject\EquipmentLoan\EquipmentLoan\bin\Debug\netcoreapp2.1\EquipmentLoan.runtimeconfig.dev.json
@@ -30,3 +31,38 @@ C:\Users\eddie\Documents\School\19_Senior\SeniorDesignProject\EquipmentLoan\Equi
 C:\Users\eddie\Documents\School\19_Senior\SeniorDesignProject\EquipmentLoan\EquipmentLoan\obj\Debug\netcoreapp2.1\EquipmentLoan.dll
 C:\Users\eddie\Documents\School\19_Senior\SeniorDesignProject\EquipmentLoan\EquipmentLoan\obj\Debug\netcoreapp2.1\EquipmentLoan.pdb
 C:\Users\eddie\Documents\School\19_Senior\SeniorDesignProject\EquipmentLoan\EquipmentLoan\obj\Debug\netcoreapp2.1\EquipmentLoan.csproj.CopyComplete
+=======
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/bin/Debug/netcoreapp2.1/EquipmentLoan.deps.json
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/bin/Debug/netcoreapp2.1/EquipmentLoan.runtimeconfig.json
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/bin/Debug/netcoreapp2.1/EquipmentLoan.runtimeconfig.dev.json
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/bin/Debug/netcoreapp2.1/EquipmentLoan.dll
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/bin/Debug/netcoreapp2.1/EquipmentLoan.pdb
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/bin/Debug/netcoreapp2.1/EquipmentLoan.Views.dll
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/bin/Debug/netcoreapp2.1/EquipmentLoan.Views.pdb
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/obj/Debug/netcoreapp2.1/EquipmentLoan.csproj.CoreCompileInputs.cache
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/obj/Debug/netcoreapp2.1/EquipmentLoan.RazorAssemblyInfo.cache
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/obj/Debug/netcoreapp2.1/EquipmentLoan.RazorAssemblyInfo.cs
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/obj/Debug/netcoreapp2.1/EquipmentLoan.AssemblyInfoInputs.cache
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/obj/Debug/netcoreapp2.1/EquipmentLoan.AssemblyInfo.cs
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/obj/Debug/netcoreapp2.1/EquipmentLoan.TagHelpers.input.cache
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/obj/Debug/netcoreapp2.1/EquipmentLoan.TagHelpers.output.cache
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/obj/Debug/netcoreapp2.1/EquipmentLoan.RazorCoreGenerate.cache
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/obj/Debug/netcoreapp2.1/Razor/Views/Home/About.g.cshtml.cs
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/obj/Debug/netcoreapp2.1/Razor/Views/Home/Contact.g.cshtml.cs
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/obj/Debug/netcoreapp2.1/Razor/Views/Home/Index.g.cshtml.cs
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/obj/Debug/netcoreapp2.1/Razor/Views/Home/Login.g.cshtml.cs
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/obj/Debug/netcoreapp2.1/Razor/Views/Home/Privacy.g.cshtml.cs
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/obj/Debug/netcoreapp2.1/Razor/Views/Shared/Error.g.cshtml.cs
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_CookieConsentPartial.g.cshtml.cs
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_Layout.g.cshtml.cs
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_ValidationScriptsPartial.g.cshtml.cs
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/obj/Debug/netcoreapp2.1/Razor/Views/_ViewImports.g.cshtml.cs
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/obj/Debug/netcoreapp2.1/Razor/Views/_ViewStart.g.cshtml.cs
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/obj/Debug/netcoreapp2.1/EquipmentLoan.RazorTargetAssemblyInfo.cache
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/obj/Debug/netcoreapp2.1/EquipmentLoan.RazorTargetAssemblyInfo.cs
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/obj/Debug/netcoreapp2.1/EquipmentLoan.Views.pdb
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/obj/Debug/netcoreapp2.1/EquipmentLoan.dll
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/obj/Debug/netcoreapp2.1/EquipmentLoan.pdb
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/obj/Debug/netcoreapp2.1/EquipmentLoan.csproj.CopyComplete
+/Users/zach/Projects/CommunityPartnerHYPE/EquipmentLoan/EquipmentLoan/obj/Debug/netcoreapp2.1/EquipmentLoan.csprojAssemblyReference.cache
+>>>>>>> Stashed changes
