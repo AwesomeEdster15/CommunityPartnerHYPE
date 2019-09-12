@@ -50,3 +50,8 @@ Lucas Winkleman
   -Learn C# and Visual Studio
   -Install Jetbrains ReSharper for .NET Apps
   -Learn about Git Branching
+
+09/12/2019
+-Decided to program from scratch
+  -Using PHP/HTML/CSS/SQL
+-Defined Database Model
