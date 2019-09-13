@@ -55,3 +55,4 @@ Lucas Winkleman
 -Decided to program from scratch
   -Using PHP/HTML/CSS/SQL
 -Defined Database Model
+-Define Application Requirements 
