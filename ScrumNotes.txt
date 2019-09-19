@@ -66,4 +66,6 @@ Lucas Winkleman
 -DB Team
   -Write SQL Create Table Statements for
 -Security TEAM
-  -
+  -Write Log in scripts
+  -Look into preventing CrossSiteScripting and other attacks
+  
