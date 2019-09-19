@@ -64,8 +64,10 @@ Lucas Winkleman
   -Write UX for Shared Layout
   -Use PHP/HTML to create a shared Header/Footer that can be called on individual pages
 -DB Team
-  -Write SQL Create Table Statements for
+  -Write SQL Create Table Statements for database creation
+  -Make ER Diagram for easy visualization
 -Security TEAM
   -Write Log in scripts
   -Look into preventing CrossSiteScripting and other attacks
-  
+-Use Camel Case
+  -doLikeThis, thisIsCamelCase
