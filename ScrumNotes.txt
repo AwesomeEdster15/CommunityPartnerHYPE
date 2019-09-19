@@ -55,4 +55,15 @@ Lucas Winkleman
 -Decided to program from scratch
   -Using PHP/HTML/CSS/SQL
 -Defined Database Model
--Define Application Requirements 
+-Define Application Requirements
+
+09/19/2019
+-Zoomed in on peoples faces
+-Use XAMMP for local development
+-UX TEAM
+  -Write UX for Shared Layout
+  -Use PHP/HTML to create a shared Header/Footer that can be called on individual pages
+-DB Team
+  -Write SQL Create Table Statements for
+-Security TEAM
+  -
