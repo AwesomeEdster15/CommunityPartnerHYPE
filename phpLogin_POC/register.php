@@ -23,7 +23,7 @@
       $usernameError = "Please enter a username.";
     } else {
       #Prepare a SELECT statement
-      $userIdSQL = "SELECT id FROM users WHERE username = ?";
+      $userIdSQL = "SELECT userName FROM patron WHERE userName = ?";
       if($stmt = mysqli_prepare($dbCon, $userIdSQL)) {
         #Bind variables to the prepared statement
         mysqli_stmt_bind_param($stmt, "s", $paramUsername);
@@ -65,7 +65,7 @@
     #Check input errors before inserting into database
     if(empty($usernameError) && empty($passwordError) && empty($confirmPasswordError)) {
       #Prepare an insert statement
-      $insertUserSQL = "INSERT INTO users (username, password) VALUES (?, ?)";
+      $insertUserSQL = "INSERT INTO patron (userName, passWord) VALUES (?, ?)";
       if($stmt = mysqli_prepare($dbCon, $insertUserSQL)) {
         #Bind variables to statement as parameters
         mysqli_stmt_bind_param($stmt, "ss", $paramUsername, $paramPassword);

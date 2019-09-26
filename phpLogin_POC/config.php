@@ -8,7 +8,7 @@
 <?php
   #Database connection credentials
   define('DB_HOST', 'localhost');
-  define('DB_NAME', 'equipmentloan');
+  define('DB_NAME', 'DB_equipmentloan');
   define('DB_USERNAME', 'root');
   define('DB_PASSWORD', '');
   #Attempt to connect to database

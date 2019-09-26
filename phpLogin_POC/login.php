@@ -21,6 +21,7 @@ $username = "";
 $password = "";
 $usernameError = "";
 $passwordError = "";
+$isAdmin = false;
 
 #processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -40,7 +41,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   #Validate Credentials
   if(empty($usernameError) && empty($passwordError)) {
     #Prepare select statement
-    $userValSQL = "SELECT id, username, password FROM users WHERE username = ?";
+    $userValSQL = "SELECT userName, passWord, isAdmin FROM patron WHERE userName = ?";
     if($stmt = mysqli_prepare($dbCon, $userValSQL)) {
       #Bind variables to statment as parameters
       mysqli_stmt_bind_param($stmt, "s", $paramUsername);
@@ -53,15 +54,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         #Check if Username Exists, then verify password
         if(mysqli_stmt_num_rows($stmt) == 1) {
           #Bind result variables
-          mysqli_stmt_bind_result($stmt, $id, $username, $hashedPassword);
+          mysqli_stmt_bind_result($stmt, $username, $hashedPassword, $isAdmin);
           if(mysqli_stmt_fetch($stmt)) {
             if(password_verify($password, $hashedPassword)) {
               #Password is correct, start new sesion
               session_start();
               #Store data in session variables
               $_SESSION["loggedin"] = true;
-              $_SESSION["id"] = $id;
               $_SESSION["username"] = $username;
+              $_SESSION["isAdmin"] = $isAdmin;
               #Redirect user to welcome page
               header("location: welcome.php");
             } else {

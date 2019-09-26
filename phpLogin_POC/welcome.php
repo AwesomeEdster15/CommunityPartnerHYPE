@@ -29,6 +29,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     <h1>
       Hello, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our website.
     </h1>
+    <h2>
+      Are you an Administrator? <b><?php echo ($_SESSION["isAdmin"] ? 'Yes' : 'No'); ?></b>
+    </h2>
   </div>
   <p>
     <a href="logout.php" class="btn btn-danger">Sign Out</a>
