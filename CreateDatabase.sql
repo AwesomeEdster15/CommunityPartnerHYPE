@@ -26,6 +26,15 @@ CREATE TABLE ProductKeywords (
     FOREIGN KEY (productID) REFERENCES ProductType(productName)
 );
 
+CREATE TABLE Item (
+    itemID INTEGER(10),
+    comments VARCHAR(1000),
+    productName VARCHAR(100),
+    inStock BOOLEAN,
+    PRIMARY KEY (itemID),
+    FOREIGN KEY (productName) REFERENCES ProductType(productName)
+);
+
 CREATE TABLE Reservation (
     reservationID INTEGER(10),
     userName VARCHAR(100),
@@ -36,13 +45,4 @@ CREATE TABLE Reservation (
     PRIMARY KEY (reservationID),
     FOREIGN KEY (userName) REFERENCES Patron(userName),
     FOREIGN KEY (itemID) REFERENCES Item(itemID)
-);
-
-CREATE TABLE Item (
-    itemID INTEGER(10),
-    comments VARCHAR(1000),
-    productName VARCHAR(100),
-    inStock BOOLEAN,
-    PRIMARY KEY (itemID),
-    FOREIGN KEY (productName) REFERENCES ProductType(productName)
 );
