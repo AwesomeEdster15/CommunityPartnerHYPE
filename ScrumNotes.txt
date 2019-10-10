@@ -87,7 +87,7 @@ Lucas Winkleman
       -Admin CheckIn/CheckOut Item button
     -User can request item -> adds data to reservations
     -Update About Us Page
-  -Fish & Brendon
+  -Fish & Brendan
     -Page to Add/Edit items (ADMIN)
       -USE SECTION 2 to add links
     -Page to View all current items (USERS)
