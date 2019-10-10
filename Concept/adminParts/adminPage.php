@@ -8,7 +8,7 @@
       <div>
         <h1 class="title">Hello!</h1>
         <p>
-          This is where you can View all the fancy Admin only Controls.
+          This is where you can view all the fancy Admin only controls.
         </p>
       </div>
     </div>
