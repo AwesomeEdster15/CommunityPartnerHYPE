@@ -77,8 +77,8 @@ Lucas Winkleman
 -Introduced new Design
 -To Do list
   -Brandon & Edward
-    -Constraints on Password, PhoneNumber, email on registration
-    -Update Registration to allow for First Name/Last Initial
+    -(DONE)Constraints on Password, PhoneNumber, email on registration
+    -(DONE)Update Registration to allow for First Name/Last Initial
     -Admins to view other users
   -Lucas & Zach
     -Add first name/Last Initial to DB
