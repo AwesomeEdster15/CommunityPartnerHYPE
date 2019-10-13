@@ -8,7 +8,7 @@ require_once "../database/config.php";
 
 #Define variables as Empty
 $fName = "";
-$lName = "";
+$lInitial = "";
 $username = "";
 $password = "";
 $confirmPassword = "";
@@ -17,7 +17,7 @@ $confirmEmail = "";
 $phoneNumber = "";
 
 $fNameError = "";
-$lNameError = "";
+$lInitialError = "";
 $usernameError = "";
 $passwordError = "";
 $confirmPasswordError = "";
@@ -61,11 +61,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $fName = trim($_POST["firstName"]);
   }
-  #Validate Last name
-  if(empty(trim($_POST["lastName"]))) {
-    $lNameError = "Please enter your Last Name.";
+  #Validate Last initial
+  if(empty(trim($_POST["lInitial"]))) {
+    $lInitialError = "Please enter your Last Initial.";
   } else {
-    $lName = trim($_POST["lastName"]);
+    $lInitial = trim($_POST["lInitial"]);
   }
   #Validate Username
   if(empty(trim($_POST["username"]))) {
@@ -113,9 +113,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
   }
   #Check input errors before inserting into database
-  if(empty($usernameError) && empty($passwordError) && empty($confirmPasswordError) && empty($emailError) && empty($confirmEmailError)) {
+  if(empty($usernameError) && empty($fNameError) && empty($lInitialError) && empty($passwordError) && empty($confirmPasswordError) && empty($emailError) && empty($confirmEmailError)) {
     #Prepare an insert statement
-    $insertUserSQL = "INSERT INTO patron (userName, passWord, email, phoneNumber) VALUES (?, ?, ?, ?)";
+    $insertUserSQL = "INSERT INTO patron (userName, fName, lInitial, passWord, email, phoneNumber) VALUES (?, ?, ?, ?, ?, ?)";
     if($stmt = mysqli_prepare($dbCon, $insertUserSQL)) {
       #Bind variables to statement as parameters
       mysqli_stmt_bind_param($stmt, "ssss", $paramUsername, $paramPassword, $paramEmail, $paramPhone);
@@ -177,10 +177,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" name="firstName" class="form-control" value="<?php echo $fName; ?>">
             <span class="help-block"><?php echo $fNameError; ?></span>
           </div>
-          <div class="form-group <?php echo (!empty($lNameError)) ? 'has-error' : ''; ?>" style="width: 350px; display: inline-block;">
-            <label>Last Name</label>
-            <input type="text" name="lastName" class="form-control" value="<?php echo $lName; ?>">
-            <span class="help-block"><?php echo $lNameError; ?></span>
+          <div class="form-group <?php echo (!empty($lInitialError)) ? 'has-error' : ''; ?>" style="width: 350px; display: inline-block;">
+            <label>Last Initial</label>
+            <input type="text" name="lInitial" class="form-control" value="<?php echo $lInitial; ?>">
+            <span class="help-block"><?php echo $lInitialError; ?></span>
           </div>
           <br>
           <div class="form-group <?php echo (!empty($usernameError)) ? 'has-error' : ''; ?>" style="width: 350px; display: inline-block;">
