@@ -51,9 +51,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       } else {
         echo "Oops! Something went wrong. Please try again later.";
       }
-      #Close statment
-      mysqli_stmt_close($stmt);
     }
+    #Close statment
+    mysqli_stmt_close($stmt);
   }
   #Validate First name
   if(empty(trim($_POST["firstName"]))) {
@@ -61,11 +61,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $fName = trim($_POST["firstName"]);
   }
-  #Validate Last initial
-  if(empty(trim($_POST["lInitial"]))) {
+  #Validate Last Initial
+  if(empty(trim($_POST["lastInitial"]))) {
     $lInitialError = "Please enter your Last Initial.";
   } else {
-    $lInitial = trim($_POST["lInitial"]);
+    $lInitial = trim($_POST["lastInitial"]);
   }
   #Validate Username
   if(empty(trim($_POST["username"]))) {
@@ -113,9 +113,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
   }
   #Check input errors before inserting into database
-  if(empty($usernameError) && empty($fNameError) && empty($lInitialError) && empty($passwordError) && empty($confirmPasswordError) && empty($emailError) && empty($confirmEmailError)) {
+  if(empty($fNameError) && empty($lInitialError) && empty($usernameError) && empty($passwordError) && empty($confirmPasswordError) && empty($emailError) && empty($confirmEmailError)) {
     #Prepare an insert statement
-    $insertUserSQL = "INSERT INTO patron (userName, fName, lInitial, passWord, email, phoneNumber) VALUES (?, ?, ?, ?, ?, ?)";
+    $insertUserSQL = "INSERT INTO patron (userName, passWord, email, phoneNumber) VALUES (?, ?, ?, ?)";
     if($stmt = mysqli_prepare($dbCon, $insertUserSQL)) {
       #Bind variables to statement as parameters
       mysqli_stmt_bind_param($stmt, "ssss", $paramUsername, $paramPassword, $paramEmail, $paramPhone);
@@ -132,12 +132,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       } else {
         echo "Oops! Something went wrong. Please try again later.";
       }
-      #Close statement
-      mysqli_stmt_close($stmt);
     }
-    #Close connection
-    mysqli_close($dbCon);
+    #Close statement
+    mysqli_stmt_close($stmt);
   }
+  #Close connection
+  mysqli_close($dbCon);
 }
 
 ?>
@@ -179,7 +179,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
           </div>
           <div class="form-group <?php echo (!empty($lInitialError)) ? 'has-error' : ''; ?>" style="width: 350px; display: inline-block;">
             <label>Last Initial</label>
-            <input type="text" name="lInitial" class="form-control" value="<?php echo $lInitial; ?>">
+            <input type="text" name="lastInitial" maxlength="1" class="form-control" value="<?php echo $lInitial; ?>">
             <span class="help-block"><?php echo $lInitialError; ?></span>
           </div>
           <br>
