@@ -2,7 +2,7 @@ CREATE TABLE Patron (
     userName VARCHAR(100),
     passWord VARCHAR(120),
     email VARCHAR(100),
-    phoneNumber INTEGER(10),
+    phoneNumber VARCHAR(10),
     isAdmin BOOLEAN,
     PRIMARY KEY (userName)
 );

@@ -190,7 +190,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
           </div>
           <div class="form-group <?php echo (!empty($phoneNumberError)) ? 'has-error' : ''; ?>" style="width: 350px; display: inline-block;">
             <label>Phone Number (123-456-7890)</label>
-            <input type="tel" placeholder="XXX-XXX-XXXX" maxlength="12" name="phoneNumber" class="form-control" value="<?php echo $phoneNumber; ?>">
+            <input type="tel" placeholder="XXX-XXX-XXXX" maxlength="10" name="phoneNumber" class="form-control" value="<?php echo $phoneNumber; ?>">
             <span class="help-block"><?php echo $phoneNumberError; ?></span>
           </div>
           <br>
