@@ -30,7 +30,7 @@ if (!isset($_SESSION)) session_start();
     #Validate Credentials
     if(empty($usernameError) && empty($passwordError)) {
       #Prepare select statement
-      $userValSQL = "SELECT userName, passWord, isAdmin FROM patron WHERE userName = ?";
+      $userValSQL = "SELECT userName, passWord, isAdmin FROM Patron WHERE userName = ?";
       if($stmt = mysqli_prepare($dbCon, $userValSQL)) {
         #Bind variables to statment as parameters
         mysqli_stmt_bind_param($stmt, "s", $paramUsername);

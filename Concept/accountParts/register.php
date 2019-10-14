@@ -32,7 +32,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $usernameError = "Please enter a username.";
   } else {
     #Prepare SELECT statement
-    $userSQL = "SELECT userName FROM patron WHERE userName = ?";
+    $userSQL = "SELECT userName FROM Patron WHERE userName = ?";
     if($stmt = mysqli_prepare($dbCon, $userSQL)) {
       #Bind variables to prepared statement
       mysqli_stmt_bind_param($stmt, "s", $paramUsername);
@@ -115,7 +115,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   #Check input errors before inserting into database
   if(empty($fNameError) && empty($lInitialError) && empty($usernameError) && empty($passwordError) && empty($confirmPasswordError) && empty($emailError) && empty($confirmEmailError)) {
     #Prepare an insert statement
-    $insertUserSQL = "INSERT INTO patron (userName, passWord, email, phoneNumber) VALUES (?, ?, ?, ?)";
+    $insertUserSQL = "INSERT INTO Patron (userName, passWord, email, phoneNumber) VALUES (?, ?, ?, ?)";
     if($stmt = mysqli_prepare($dbCon, $insertUserSQL)) {
       #Bind variables to statement as parameters
       mysqli_stmt_bind_param($stmt, "ssss", $paramUsername, $paramPassword, $paramEmail, $paramPhone);
