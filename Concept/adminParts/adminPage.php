@@ -35,7 +35,7 @@ require_once "../database/config.php";
     			<td>phoneNumber</td>
     			<td>isAdmin</td>
     		</tr>
-    		<?php 
+    		<?php
     			#should I make the entire patron table editable?
     			$username = "";
     			$usernameError = "";
@@ -75,7 +75,7 @@ require_once "../database/config.php";
     		</tr>
     		<?php
     			if($_SERVER["REQUEST_METHOD"] == "POST") {
-    				if (isset($_POST['userChoice'])) 
+    				if (isset($_POST['userChoice']))
 			    	{
 			    		echo "<label>ooo</label>";
 	    				if(empty(trim($_POST["username"]))) {
@@ -116,10 +116,10 @@ require_once "../database/config.php";
 				    			echo "</div>";
 				    			echo "</form>";
 
-				    			if (isset($_POST['update'])) 
+				    			if (isset($_POST['update']))
 				    			{
 				    				echo "<label>hello</label>";
-				    				if(empty(trim($_POST["email"]))) 
+				    				if(empty(trim($_POST["email"])))
 				    				{
 	    								$usernameError = "Please enter a email.";
 	    								echo "<label>$usernameError hi</label>";
@@ -131,21 +131,21 @@ require_once "../database/config.php";
 	    							}
 	    							else
 	    							{
-	    								$paramUsername = "'".$result['userName']."'";
-	    								$paramEmail = "'".trim($_POST["email"])."'";
-	    								$paramPhoneNumber = "'".trim($_POST["phoneNumber"])."'";
-	    								$paramIsAdmin = "'".$_POST["isAdmin"]."'";
+	    								$paramUsername = $result['userName'];
+	    								$paramEmail = trim($_POST["email"]);
+	    								$paramPhoneNumber = trim($_POST["phoneNumber"]);
+	    								$paramIsAdmin = $_POST["isAdmin"];
 	    								echo "<label>$paramUsername oh</label>";
 	    								$insertUserSQL = "UPDATE Patron SET email = ?, phoneNumber = ?, isAdmin = ? WHERE userName = ?";
-	    								if($stmt = mysqli_prepare($dbCon, $insertUserSQL)) 
+	    								if($stmt = mysqli_prepare($dbCon, $insertUserSQL))
 	    								{
-	    									mysqli_stmt_bind_param($stmt, "ssss", $paramEmail, $paramPhoneNumber, $paramIsAdmin, $paramUsername);
-	    									if(mysqli_stmt_execute($stmt)) 
+	    									mysqli_stmt_bind_param($stmt, "ssis", $paramEmail, $paramPhoneNumber, $paramIsAdmin, $paramUsername);
+	    									if(mysqli_stmt_execute($stmt))
 	    									{
 	    										echo "Success!";
 	    										#header("location: adminPage.php");
 	    									}
-	    									else 
+	    									else
 	    									{
 	    										echo "Oops! Something went wrong. Please try again later.";
 	    									}
@@ -166,13 +166,13 @@ require_once "../database/config.php";
 			    			$SQLphoneNumber = "";
 			    			$SQLisAdmin = "";
 			    			$SQLuh = "";
-			    			if($nonAdmin = mysqli_prepare($dbCon, $userSQL)) 
+			    			if($nonAdmin = mysqli_prepare($dbCon, $userSQL))
 			    			{
 			    				#mysqli_stmt_bind_param($nonAdmin, "s", $paramUsername);
 			    				$paramUsername = "'".trim($_POST["username"])."'";
 									echo "<label>$paramUsername</label>";
-			    				if(mysqli_stmt_execute($nonAdmin)) 
-			    				{ 
+			    				if(mysqli_stmt_execute($nonAdmin))
+			    				{
 									mysqli_stmt_store_result($nonAdmin);
 									mysqli_stmt_bind_result($nonAdmin, $SQLuserName, $SQLpassWord, $SQLemail, $SQLphoneNumber, $SQLisAdmin);
 									echo "<tr>";
@@ -194,9 +194,9 @@ require_once "../database/config.php";
 							*/
 						}
 					}
-				}    			
+				}
     		?>
-    		
+
     	</table>
     </section>
     <!--Section 3-->
