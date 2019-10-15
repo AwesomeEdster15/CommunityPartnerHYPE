@@ -106,6 +106,25 @@ body{
     text-align: center;
 }
 
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 14px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  text-align: right;
+}
+
+#submission {
+  text-align: center;
+  }
+
+
 <script type="text/javascript">
 $(document).ready(function(){
 $('.menu-toggle').click(function(){
