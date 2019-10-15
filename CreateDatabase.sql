@@ -1,11 +1,19 @@
 CREATE TABLE Patron (
     userName VARCHAR(100),
+    firstName VARCHAR(100),
+    lastInitial CHAR(1),
     passWord VARCHAR(120),
     email VARCHAR(100),
-    phoneNumber INTEGER(10),
+    phoneNumber VARCHAR(10),
     isAdmin BOOLEAN,
     PRIMARY KEY (userName)
 );
+
+-- To add firstName and lastInital to an already existing Patron
+-- table, run this:
+-- ALTER TABLE Patron
+--     ADD firstName VARCHAR(100),
+--     ADD lastInitial CHAR(1);
 
 CREATE TABLE ProductType (
     productLine VARCHAR(100),
@@ -46,3 +54,5 @@ CREATE TABLE Reservation (
     FOREIGN KEY (userName) REFERENCES Patron(userName),
     FOREIGN KEY (itemID) REFERENCES Item(itemID)
 );
+
+

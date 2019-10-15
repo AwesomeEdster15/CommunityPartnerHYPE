@@ -32,7 +32,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $usernameError = "Please enter a username.";
   } else {
     #Prepare SELECT statement
-    $userSQL = "SELECT userName FROM patron WHERE userName = ?";
+    $userSQL = "SELECT userName FROM Patron WHERE userName = ?";
     if($stmt = mysqli_prepare($dbCon, $userSQL)) {
       #Bind variables to prepared statement
       mysqli_stmt_bind_param($stmt, "s", $paramUsername);
@@ -115,11 +115,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   #Check input errors before inserting into database
   if(empty($fNameError) && empty($lInitialError) && empty($usernameError) && empty($passwordError) && empty($confirmPasswordError) && empty($emailError) && empty($confirmEmailError)) {
     #Prepare an insert statement
-    $insertUserSQL = "INSERT INTO patron (userName, passWord, email, phoneNumber) VALUES (?, ?, ?, ?)";
+    $insertUserSQL = "INSERT INTO Patron (firstName, lastInitial, userName, passWord, email, phoneNumber) VALUES (?, ?, ?, ?, ?, ?)";
     if($stmt = mysqli_prepare($dbCon, $insertUserSQL)) {
       #Bind variables to statement as parameters
-      mysqli_stmt_bind_param($stmt, "ssss", $paramUsername, $paramPassword, $paramEmail, $paramPhone);
+      mysqli_stmt_bind_param($stmt, "ssssss", $paramFName, $paramLInit, $paramUsername, $paramPassword, $paramEmail, $paramPhone);
       #Set parameters
+      $paramFName = $fName;
+      $paramLInit = $lInitial;
       $paramUsername = $username;
       $paramEmail = $email;
       $paramPhone = $phoneNumber;
@@ -190,7 +192,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
           </div>
           <div class="form-group <?php echo (!empty($phoneNumberError)) ? 'has-error' : ''; ?>" style="width: 350px; display: inline-block;">
             <label>Phone Number (123-456-7890)</label>
-            <input type="tel" placeholder="XXX-XXX-XXXX" maxlength="12" name="phoneNumber" class="form-control" value="<?php echo $phoneNumber; ?>">
+            <input type="tel" placeholder="XXX-XXX-XXXX" maxlength="10" name="phoneNumber" class="form-control" value="<?php echo $phoneNumber; ?>">
             <span class="help-block"><?php echo $phoneNumberError; ?></span>
           </div>
           <br>

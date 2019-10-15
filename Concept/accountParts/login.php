@@ -6,7 +6,11 @@ if (!isset($_SESSION)) session_start();
   #Include Config File
   require_once "../database/config.php";
   #Define variables as Empty
+  $fName = "";
+  $lInitial = "";
   $username = "";
+  $email = "";
+  $phoneNumber = "";
   $password = "";
   $usernameError = "";
   $passwordError = "";
@@ -30,7 +34,7 @@ if (!isset($_SESSION)) session_start();
     #Validate Credentials
     if(empty($usernameError) && empty($passwordError)) {
       #Prepare select statement
-      $userValSQL = "SELECT userName, passWord, isAdmin FROM patron WHERE userName = ?";
+      $userValSQL = "SELECT firstName, lastInitial, userName, email, phoneNumber, passWord, isAdmin FROM Patron WHERE userName = ?";
       if($stmt = mysqli_prepare($dbCon, $userValSQL)) {
         #Bind variables to statment as parameters
         mysqli_stmt_bind_param($stmt, "s", $paramUsername);
@@ -43,14 +47,18 @@ if (!isset($_SESSION)) session_start();
           #Check if Username Exists, then verify password
           if(mysqli_stmt_num_rows($stmt) == 1) {
             #Bind result variables
-            mysqli_stmt_bind_result($stmt, $username, $hashedPassword, $isAdmin);
+            mysqli_stmt_bind_result($stmt, $fName, $lInitial, $username, $email, $phoneNumber, $hashedPassword, $isAdmin);
             if(mysqli_stmt_fetch($stmt)) {
               if(password_verify($password, $hashedPassword)) {
                 #Password is correct, start new sesion
                 session_start();
                 #Store data in session variables
                 $_SESSION["loggedin"] = true;
+                $_SESSION["firstName"] = $fName;
+                $_SESSION["lastInitial"] = $lInitial;
                 $_SESSION["username"] = $username;
+                $_SESSION["email"] = $email;
+                $_SESSION["phoneNumber"] = $phoneNumber;
                 $_SESSION["isAdmin"] = $isAdmin;
                 #Redirect user to welcome page
                 header("location: ../mainPages/myAccount.php");
