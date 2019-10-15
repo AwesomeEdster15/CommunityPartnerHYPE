@@ -18,7 +18,7 @@ CREATE TABLE Patron (
 CREATE TABLE ProductType (
     productLine VARCHAR(100),
     stockCount INTEGER(10),
-    rewritable BOOLEAN,
+    reusable BOOLEAN,
     imageLink VARCHAR(1000),
     productName VARCHAR(100),
     requestPeriod DATE,
