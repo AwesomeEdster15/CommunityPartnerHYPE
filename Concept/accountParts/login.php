@@ -74,9 +74,9 @@ if (!isset($_SESSION)) session_start();
         } else {
           echo "Oops! Something went wrong. Please try again.";
         }
+        #Close statment
+        mysqli_stmt_close($stmt);
       }
-      #Close statment
-      mysqli_stmt_close($stmt);
     }
     #Close connection
     mysqli_close($dbCon);
