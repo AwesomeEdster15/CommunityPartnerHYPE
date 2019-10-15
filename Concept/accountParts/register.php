@@ -115,11 +115,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   #Check input errors before inserting into database
   if(empty($fNameError) && empty($lInitialError) && empty($usernameError) && empty($passwordError) && empty($confirmPasswordError) && empty($emailError) && empty($confirmEmailError)) {
     #Prepare an insert statement
-    $insertUserSQL = "INSERT INTO Patron (userName, passWord, email, phoneNumber) VALUES (?, ?, ?, ?)";
+    $insertUserSQL = "INSERT INTO Patron (firstName, lastInitial, userName, passWord, email, phoneNumber) VALUES (?, ?, ?, ?, ?, ?)";
     if($stmt = mysqli_prepare($dbCon, $insertUserSQL)) {
       #Bind variables to statement as parameters
-      mysqli_stmt_bind_param($stmt, "ssss", $paramUsername, $paramPassword, $paramEmail, $paramPhone);
+      mysqli_stmt_bind_param($stmt, "ssssss", $paramFName, $paramLInit, $paramUsername, $paramPassword, $paramEmail, $paramPhone);
       #Set parameters
+      $paramFName = $fName;
+      $paramLInit = $lInitial;
       $paramUsername = $username;
       $paramEmail = $email;
       $paramPhone = $phoneNumber;
