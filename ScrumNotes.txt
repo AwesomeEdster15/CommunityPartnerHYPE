@@ -86,7 +86,7 @@ Lucas Winkleman
     -Page to view single item
       -Admin CheckIn/CheckOut Item button
     -User can request item -> adds data to reservations
-    -Update About Us Page
+    -(DONE)Update About Us Page
   -Fish & Brendan
     -Page to Add/Edit items (ADMIN)
       -USE SECTION 2 to add links
