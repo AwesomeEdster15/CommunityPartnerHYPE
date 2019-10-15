@@ -150,7 +150,8 @@ require_once "../database/config.php";
 							$paramUsername = trim($_POST["userName"]);
 							$paramEmail = trim($_POST["email"]);
 							$paramPhoneNumber = trim($_POST["phoneNumber"]);
-							if ($_POST["isAdmin"] == "on")
+
+							if(isset($_POST["isAdmin"]))
 							{
 								$paramIsAdmin = 1;
 							}
@@ -165,7 +166,7 @@ require_once "../database/config.php";
 								if(mysqli_stmt_execute($stmt))
 								{
 									echo "Success!";
-									#header("location: adminPage.php");
+									header("location: adminPage.php");
 								}
 								else
 								{
