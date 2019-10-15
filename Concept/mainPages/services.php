@@ -13,8 +13,9 @@
       </div>
     </div>
     <!--Section 2-->
-    <section>
-    </section>
+    <div class="section1">
+        <?php if (isset($_SESSION["isAdmin"])) {echo (($_SESSION["isAdmin"]) ? "<p>Admin</p>" : "<p>NotAdmin</p>" ); } ?>
+    </div>
     <!--Section 3-->
     <section>
     </section>
