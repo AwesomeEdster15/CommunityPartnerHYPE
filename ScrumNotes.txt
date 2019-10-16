@@ -79,7 +79,10 @@ Lucas Winkleman
   -Brandon & Edward
     -(DONE)Constraints on Password, PhoneNumber, email on registration
     -(DONE)Update Registration to allow for First Name/Last Initial
-    -Admins to view other users
+    -(DONE)Admins to view other users
+    -Make Admin levels
+    -Make the admin websites inaccessible to regular users
+    -Make a robots.txt
   -Lucas & Zach
     -(DONE)Add first name/Last Initial to DB
     -Add constraints to DB design
