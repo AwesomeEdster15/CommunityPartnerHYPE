@@ -7,14 +7,14 @@ if (!isset($_SESSION)) session_start();
 require_once "../database/config.php";
 
 #Define variables as Empty
-$productLine = "";
+$productLink = "";
 $stockCount = "";
 $reusable = "";
 $imageLink = "";
 $productName = "";
 $requestPeriod = "";
 
-$productLineError = "";
+$productLinkError = "";
 $stockCountError = "";
 $reusableError = "";
 $imageLinkError = "";
@@ -23,26 +23,26 @@ $requestPeriodError = "";
 
 #Process Form data after form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-  #Validate userName
-  if(empty(trim($_POST["productLine"]))) {
-    $usernameError = "Please enter a product line.";
+  #Validate productName
+  if(empty(trim($_POST["productName"]))) {
+    $productLinkError = "Please enter a product name.";
   } else {
     #Prepare SELECT statement
-    $userSQL = "SELECT productLine FROM ProductType WHERE productLine = ?";
-    if($stmt = mysqli_prepare($dbCon, $userSQL)) {
+    $productNameSQL = "SELECT productName FROM ProductType WHERE productName = ?";
+    if($stmt = mysqli_prepare($dbCon, $productNameSQL)) {
       #Bind variables to prepared statement
-      mysqli_stmt_bind_param($stmt, "s", $paramUsername);
+      mysqli_stmt_bind_param($stmt, "s", $paramProductName);
       #Set parameters
-      $paramUsername = trim($_POST["productLine"]);
+      $paramProductName = trim($_POST["productName"]);
       #Attempt to execute prepared statement
       if(mysqli_stmt_execute($stmt)) {
         #Store result
         mysqli_stmt_store_result($stmt);
         #If the statement reutrns exactly 1 row
         if(mysqli_stmt_num_rows($stmt) == 1) {
-          $usernameError = "This product line already exists.";
+          $productName = "This product type already exists.";
         } else {
-          $productLine = trim($_POST["productLine"]);
+          $productName = trim($_POST["productName"]);
         }
       } else {
         echo "Oops! Something went wrong. Please try again later...";
@@ -61,10 +61,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $reusable = trim($_POST["reusable"]);
   }
-  if(empty(trim($_POST["productLine"]))) {
-    $productLineError = "Please enter a product line.";
+  if(empty(trim($_POST["productLink"]))) {
+    $productLinkError = "Please enter a product link.";
   } else {
-    $productLine = trim($_POST["productLine"]);
+    $productLink = trim($_POST["productLink"]);
   }
   if(empty(trim($_POST["imageLink"]))) {
     $imageLinkError = "Please enter the image URL.";
@@ -83,14 +83,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   #Check input errors before inserting into database
-  if(empty($stockCountError) && empty($reusableError) && empty($imageLinkError) && empty($productNameError) && empty($requestPeriodError) && empty($productLineError)) {
+  if(empty($stockCountError) && empty($reusableError) && empty($imageLinkError) && empty($productNameError) && empty($requestPeriodError) && empty($productLinkError)) {
     #Prepare an insert statement
-    $insertProductTypeSQL = "INSERT INTO ProductType (productLine, stockCount, reusable, imageLink, productName, requestPeriod) VALUES (?, ?, ?, ?, ?, ?)";
+    $insertProductTypeSQL = "INSERT INTO ProductType (productLink, stockCount, reusable, imageLink, productName, requestPeriod) VALUES (?, ?, ?, ?, ?, ?)";
     if($stmt = mysqli_prepare($dbCon, $insertProductTypeSQL)) {
       #Bind variables to statement as parameters
-      mysqli_stmt_bind_param($stmt, "sisssi", $paramProductLine, $paramStockCount, $paramReusable, $paramImageLink, $paramProductName, $paramRequestPeriod);
+      mysqli_stmt_bind_param($stmt, "sisssi", $paramproductLink, $paramStockCount, $paramReusable, $paramImageLink, $paramProductName, $paramRequestPeriod);
       #Set parameters
-      $paramProductLine = $productLine;
+      $paramproductLink = $productLink;
       $paramStockCount = $stockCount;
       $paramReusable = $reusable;
       $paramImageLink = $imageLink;
@@ -141,17 +141,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <h2>Add Product Type</h2>
         <p>Complete this form to add a product type</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-          <div class="form-group <?php echo (!empty($productLineError)) ? 'has-error' : ''; ?>" style="width: 350px; display: inline-block;">
-            <label>Product Line</label>
-            <input type="text" name="productLine" class="form-control" value="<?php echo $productLine; ?>">
-            <span class="help-block"><?php echo $productLineError; ?></span>
+          <div class="form-group <?php echo (!empty($productNameError)) ? 'has-error' : ''; ?>" style="width: 350px; display: inline-block;">
+            <label>Product Name</label>
+            <input type="text" name="productName" class="form-control" value="<?php echo $productName; ?>">
+            <span class="help-block"><?php echo $productNameError; ?></span>
           </div>
+          <div class="form-group <?php echo (!empty($productLinkError)) ? 'has-error' : ''; ?>" style="width: 350px; display: inline-block;">
+            <label>Product Link</label>
+            <input type="text" name="productLink" class="form-control" value="<?php echo $productLink; ?>">
+            <span class="help-block"><?php echo $productLinkError; ?></span>
+          </div>
+          <br>
           <div class="form-group <?php echo (!empty($stockCountError)) ? 'has-error' : ''; ?>" style="width: 350px; display: inline-block;">
             <label>Stock Count</label>
             <input type="text" name="stockCount" maxlength="2" class="form-control" value="<?php echo $stockCount; ?>">
             <span class="help-block"><?php echo $stockCountError; ?></span>
           </div>
-          <br>
           <div class="form-group <?php echo (!empty($reusableError)) ? 'has-error' : ''; ?>" style="width: 350px; display: inline-block;">
             <label>Reusable</label>
             <select list="TrueFalse" name="reusable" class="form-control" value="<?php echo $reusable; ?>">
@@ -160,16 +165,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             </select>
             <span class="help-block"><?php echo $reusableError; ?></span>
           </div>
+          <br>
           <div class="form-group <?php echo (!empty($imageLinkError)) ? 'has-error' : ''; ?>" style="width: 350px; display: inline-block;">
             <label>Image Link</label>
             <input type="text" name="imageLink" class="form-control" value="<?php echo $imageLink; ?>">
             <span class="help-block"><?php echo $imageLinkError; ?></span>
-          </div>
-          <br>
-          <div class="form-group <?php echo (!empty($productNameError)) ? 'has-error' : ''; ?>" style="width: 350px; display: inline-block;">
-            <label>Product Name</label>
-            <input type="text" name="productName" class="form-control" value="<?php echo $productName; ?>">
-            <span class="help-block"><?php echo $productNameError; ?></span>
           </div>
           <div class="form-group <?php echo (!empty($requestPeriodError)) ? 'has-error' : ''; ?>" style="width: 350px; display: inline-block;">
             <label>Request Period (Number of Days)</label>

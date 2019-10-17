@@ -86,6 +86,7 @@ Lucas Winkleman
   -Lucas & Zach
     -(DONE)Add first name/Last Initial to DB
     -Add constraints to DB design
+	-Auto increment IDs, set not nulls, etc
     -Page to view single item
       -Admin CheckIn/CheckOut Item button
     -User can request item -> adds data to reservations
@@ -97,3 +98,32 @@ Lucas Winkleman
       -Filter items
       -clicking on an item goes to Single Item page
     -Update CSS (Optional)
+
+
+
+10/17/2019
+  -Brandon & Edward
+    -Make Admin levels
+    -Make the admin websites inaccessible to regular users
+    -(DONE)Make a robots.txt
+  -Lucas & Zach
+    -Add constraints to DB design
+      -Auto increment IDs, set not nulls, etc.
+    -Page to view single item
+      -Admin Check In / Check Out Item button
+    -User can request item -> adds data to reservations
+  -Fish & Brendan
+    -NO Dumb Questions
+    -Page to Add/Edit items (ADMIN)
+      -USE SECTION 2 to add links
+    -Page to View all current items (USERS)
+      -Filter items (By Name or/and Product Tags)
+      -clicking on an item goes to Single Item page
+      -Actually Work
+    -Update CSS (Optional)
+
+  -By Monday
+    -Single Item Page
+      -Check In / Check Out Functionality
+        -Admin button to change status
+    -Pull Data from Database
