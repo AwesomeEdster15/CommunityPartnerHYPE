@@ -120,9 +120,43 @@ body{
   text-align: right;
 }
 
-#services {
+#itemTable {
   text-align: center;
   }
+
+#itemTable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#itemTable td, #itemTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#itemTable tr:nth-child(even){background-color: #f2f2f2;}
+
+#itemTable tr:hover {background-color: #ddd;}
+
+#itemTable th {
+    padding: 12px 12px 12px 12px;
+    text-align: left;
+    background-color: #2196f3;
+    color: white;
+}
+
+#searchBar {
+  background-image: url('../imgs/searchicon.png');
+  background-size: 16px 16px;
+  background-position: 15px 15px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
 
 
 <script type="text/javascript">
