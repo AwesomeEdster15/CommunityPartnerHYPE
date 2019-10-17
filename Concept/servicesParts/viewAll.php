@@ -18,63 +18,47 @@
     </section>
     <!--Section 3-->
     <section>
-        <table id="itemTable">
-          <tr>
-            <th>Item</th>
-            <th>Description</th>
-            <th>Link</th>
-          </tr>
-          <tr>
-            <td>Alfreds Futterkiste</td>
-            <td>Maria Anders</td>
-            <td><a href="../mainPages/services.php">Germany</a></td>
-          </tr>
-          <tr>
-            <td>Berglunds snabbköp</td>
-            <td>Christina Berglund</td>
-            <td><a href="../mainPages/services.php">Sweden</a></td>
-          </tr>
-          <tr>
-            <td>Centro comercial Moctezuma</td>
-            <td>Francisco Chang</td>
-            <td><a href="../mainPages/services.php">Mexico</a></td>
-          </tr>
-          <tr>
-            <td>Ernst Handel</td>
-            <td>Roland Mendel</td>
-            <td><a href="../mainPages/services.php">Austria</a></td>
-          </tr>
-          <tr>
-            <td>Island Trading</td>
-            <td>Helen Bennett</td>
-            <td><a href="../mainPages/services.php">UK</a></td>
-          </tr>
-          <tr>
-            <td>Königlich Essen</td>
-            <td>Philip Cramer</td>
-            <td><a href="../mainPages/services.php">Germany</a></td>
-          </tr>
-          <tr>
-            <td>Laughing Bacchus Winecellars</td>
-            <td>Yoshi Tannamuri</td>
-            <td><a href="../mainPages/services.php">Canada</a></td>
-          </tr>
-          <tr>
-            <td>Magazzini Alimentari Riuniti</td>
-            <td>Giovanni Rovelli</td>
-            <td><a href="../mainPages/services.php">Italy</a></td>
-          </tr>
-          <tr>
-            <td>North/South</td>
-            <td>Simon Crowther</td>
-            <td><a href="../mainPages/services.php">UK</a></td>
-          </tr>
-          <tr>
-            <td>Paris spécialités</td>
-            <td>Marie Bertrand</td>
-            <td><a href="../mainPages/services.php">France</a></td>
-          </tr>
-        </table>
+          <?php
+          define('DB_HOST', 'localhost');
+          define('DB_NAME', 'DB_equipmentloan');
+          define('DB_USERNAME', 'root');
+          define('DB_PASSWORD', '');
+          #Attempt to connect to database
+          $con = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+          // Check connection
+          if (mysqli_connect_errno())
+          {
+            echo "Failed to connect to MySQL: " . mysqli_connect_error();
+          }
+
+$result = mysqli_query($con,"SELECT * FROM ProductType");
+
+echo "<table id=\"itemTable\">
+<tr>
+<th>Prouct Link</th>
+<th>Stock Count</th>
+<th>Reusable</th>
+<th>Image Link</th>
+<th>Product Name</th>
+<th>Request Period</th>
+</tr>";
+
+while($row = mysqli_fetch_array($result))
+{
+echo "<tr>";
+echo "<td>" . $row['productLine'] . "</td>";
+echo "<td>" . $row['stockCount'] . "</td>";
+echo "<td>" . $row['reusable'] . "</td>";
+echo "<td>" . $row['imageLink'] . "</td>";
+echo "<td>" . $row['productName'] . "</td>";
+echo "<td>" . $row['requestPeriod'] . "</td>";
+echo "</tr>";
+}
+
+mysqli_close($con);
+?>
+</table>
+
         <script>
           function search() {
             var input, filter, table, tr, td, i, txtValue;
