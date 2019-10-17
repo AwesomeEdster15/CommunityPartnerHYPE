@@ -46,7 +46,7 @@ echo "<table id=\"itemTable\">
 while($row = mysqli_fetch_array($result))
 {
 echo "<tr>";
-echo "<td>" . $row['productLine'] . "</td>";
+echo "<td>" . $row['productLink'] . "</td>";
 echo "<td>" . $row['stockCount'] . "</td>";
 echo "<td>" . $row['reusable'] . "</td>";
 echo "<td>" . $row['imageLink'] . "</td>";
