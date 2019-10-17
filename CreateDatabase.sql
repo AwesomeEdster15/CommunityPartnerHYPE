@@ -20,9 +20,10 @@ CREATE TABLE Patron (
 
 -- To change requestPeriod to an integer (number of days):
 -- ALTER TABLE ProductType Change requestPeriod requestPeriod INTEGER 
+-- ALTER TABLE ProductType Change productLine productLink VARCHAR(100)
 
 CREATE TABLE ProductType (
-    productLine VARCHAR(100),
+    productLink VARCHAR(100),
     stockCount INTEGER(10),
     reusable BOOLEAN,
     imageLink VARCHAR(1000),
