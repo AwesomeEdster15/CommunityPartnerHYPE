@@ -94,7 +94,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       $paramStockCount = $stockCount;
       $paramReusable = $reusable;
       $paramImageLink = $imageLink;
-      $paramProductName = $productLine;
+      $paramProductName = $productName;
       $paramRequestPeriod = $requestPeriod;
       #Execute prepared statment
       if(mysqli_stmt_execute($stmt)) {
@@ -157,7 +157,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <select list="TrueFalse" name="reusable" class="form-control" value="<?php echo $reusable; ?>">
               <option value="1">Yes</option>
               <option value="0">No</option>
-            </select> 
+            </select>
             <span class="help-block"><?php echo $reusableError; ?></span>
           </div>
           <div class="form-group <?php echo (!empty($imageLinkError)) ? 'has-error' : ''; ?>" style="width: 350px; display: inline-block;">
