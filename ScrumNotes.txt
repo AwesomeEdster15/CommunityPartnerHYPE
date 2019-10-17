@@ -105,7 +105,7 @@ Lucas Winkleman
   -Brandon & Edward
     -Make Admin levels
     -Make the admin websites inaccessible to regular users
-    -Make a robots.txt
+    -(DONE)Make a robots.txt
   -Lucas & Zach
     -Add constraints to DB design
       -Auto increment IDs, set not nulls, etc.
