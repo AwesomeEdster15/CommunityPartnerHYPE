@@ -224,13 +224,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
           <p>Already have an account? <a href="login.php">Login here</a>.</p>
         </form>
       </div>
-      <!--Section 2-->
-      <section>
-      </section>
-      <!--Section 3-->
-      <section>
-      </section>
     </div>
-
+  </div>
+</body>
+</html>
     <!---FOOTER--->
     <?php #require "../sharedParts/footer.php"; ?>
+

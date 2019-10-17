@@ -15,13 +15,19 @@ CREATE TABLE Patron (
 --     ADD firstName VARCHAR(100),
 --     ADD lastInitial CHAR(1);
 
+-- To change rewritable to reusable in an already existing ProductType table:
+-- ALTER TABLE ProductType Change rewritable reusable BOOLEAN 
+
+-- To change requestPeriod to an integer (number of days):
+-- ALTER TABLE ProductType Change requestPeriod requestPeriod INTEGER 
+
 CREATE TABLE ProductType (
     productLine VARCHAR(100),
     stockCount INTEGER(10),
     reusable BOOLEAN,
     imageLink VARCHAR(1000),
     productName VARCHAR(100),
-    requestPeriod DATE,
+    requestPeriod INTEGER,
     PRIMARY KEY (productName)
 );
 
