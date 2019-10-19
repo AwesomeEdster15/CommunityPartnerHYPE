@@ -1,5 +1,5 @@
 CREATE TABLE Patron (
-    userName VARCHAR(100),
+    userName VARCHAR(100) NOT NULL,
     firstName VARCHAR(100),
     lastInitial CHAR(1),
     passWord VARCHAR(120),
@@ -22,6 +22,11 @@ CREATE TABLE Patron (
 -- ALTER TABLE ProductType Change requestPeriod requestPeriod INTEGER 
 -- ALTER TABLE ProductType Change productLine productLink VARCHAR(100)
 
+-- To add auto-increment to the id fields, run this:
+-- ALTER TABLE ProductKeywords CHANGE keywordID keywordID INT(10) NOT NULL AUTO_INCREMENT;
+-- ALTER TABLE Item CHANGE itemID itemID INT(10) NOT NULL AUTO_INCREMENT;
+-- ALTER TABLE Reservation CHANGE reservationID reservationID INT(10) NOT NULL AUTO_INCREMENT;
+
 CREATE TABLE ProductType (
     productLink VARCHAR(100),
     stockCount INTEGER(10),
@@ -33,16 +38,16 @@ CREATE TABLE ProductType (
 );
 
 CREATE TABLE ProductKeywords (
-    keywordID INTEGER(10),
+    keywordID INTEGER(10) NOT NULL AUTO_INCREMENT,
     productLine VARCHAR(100),
     keyword VARCHAR(100),
-    productID VARCHAR(100),
+    productName VARCHAR(100),
     PRIMARY KEY (keywordID),
-    FOREIGN KEY (productID) REFERENCES ProductType(productName)
+    FOREIGN KEY (productName) REFERENCES ProductType(productName)
 );
 
 CREATE TABLE Item (
-    itemID INTEGER(10),
+    itemID INTEGER(10) NOT NULL AUTO_INCREMENT,
     comments VARCHAR(1000),
     productName VARCHAR(100),
     inStock BOOLEAN,
@@ -51,7 +56,7 @@ CREATE TABLE Item (
 );
 
 CREATE TABLE Reservation (
-    reservationID INTEGER(10),
+    reservationID INTEGER(10) NOT NULL AUTO_INCREMENT,
     userName VARCHAR(100),
     dateIn DATE,
     dateOut DATE,
