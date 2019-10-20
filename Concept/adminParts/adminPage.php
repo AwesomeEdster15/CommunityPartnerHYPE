@@ -4,6 +4,11 @@
 #<!--Initialize Session-->
 if (!isset($_SESSION)) session_start();
 
+if (!isset($_SESSION["isAdmin"]))
+{
+	header("Location: ../accountParts/login.php");
+}
+
 #Include Config File
 require_once "../database/config.php";
 

@@ -104,7 +104,7 @@ Lucas Winkleman
 10/17/2019
   -Brandon & Edward
     -Make Admin levels
-    -Make the admin websites inaccessible to regular users
+    -(DONE)Make the admin websites inaccessible to regular users
     -(DONE)Make a robots.txt
   -Lucas & Zach
     -Add constraints to DB design

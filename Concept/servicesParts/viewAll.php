@@ -18,20 +18,10 @@
     </section>
     <!--Section 3-->
     <section>
-          <?php
-          define('DB_HOST', 'localhost');
-          define('DB_NAME', 'DB_equipmentloan');
-          define('DB_USERNAME', 'root');
-          define('DB_PASSWORD', '');
-          #Attempt to connect to database
-          $con = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-          // Check connection
-          if (mysqli_connect_errno())
-          {
-            echo "Failed to connect to MySQL: " . mysqli_connect_error();
-          }
+<?php
+	require_once "../database/config.php";
 
-$result = mysqli_query($con,"SELECT * FROM ProductType");
+$result = mysqli_query($dbCon,"SELECT * FROM ProductType");
 
 echo "<table id=\"itemTable\">
 <tr>
@@ -55,7 +45,7 @@ echo "<td>" . $row['requestPeriod'] . "</td>";
 echo "</tr>";
 }
 
-mysqli_close($con);
+mysqli_close($dbCon);
 ?>
 </table>
 
