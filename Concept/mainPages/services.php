@@ -15,10 +15,12 @@
       </div>
     </div>
     <!--Section 2-->
+    <div style="text-align: center">
     <p id='services'> <input type="button" onclick="window.location.href = '../servicesParts/viewAll.php';" value="View All Products"/>
     <div class="section1">
         <?php if (isset($_SESSION["isAdmin"])) {echo (($_SESSION["isAdmin"]) ? "<p id='services'> <input type=\"button\" onclick=\"window.location.href = '../adminParts/addProductType.php';\" value=\"Add Product Type\"/> </p>" : ''); } ?>
     </div>
+  </div>
     </p>
     <!--Section 3-->
     <section>
