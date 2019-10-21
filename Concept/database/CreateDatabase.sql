@@ -28,11 +28,11 @@ CREATE TABLE Patron (
 -- ALTER TABLE Reservation CHANGE reservationID reservationID INT(10) NOT NULL AUTO_INCREMENT;
 
 CREATE TABLE ProductType (
+    imageLink VARCHAR(1000),
+    productName VARCHAR(100),
     productLink VARCHAR(100),
     stockCount INTEGER(10),
     reusable BOOLEAN,
-    imageLink VARCHAR(1000),
-    productName VARCHAR(100),
     requestPeriod INTEGER,
     PRIMARY KEY (productName)
 );
