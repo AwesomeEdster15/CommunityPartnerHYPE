@@ -158,7 +158,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <label>Reusable</label>
             <select list="TrueFalse" name="reusable" class="form-control" value="<?php echo $reusable; ?>">
               <option value="1">Yes</option>
-              <option value="0">No</option>
+              <option value="00">No</option>
             </select>
             <span class="help-block"><?php echo $reusableError; ?></span>
           </div>
