@@ -1,6 +1,3 @@
-
-
-<!--Header-->
 <?php require "../sharedParts/header.php"; ?>
 
   <!---MAIN----->

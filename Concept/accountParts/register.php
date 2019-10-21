@@ -1,7 +1,4 @@
-<?php
-#Register page
-#<!--Initialize Session-->
-if (!isset($_SESSION)) session_start();
+<?php if (!isset($_SESSION)) session_start();
 
 #Include Config File
 require_once "../database/config.php";
@@ -230,4 +227,3 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 </html>
     <!---FOOTER--->
     <?php #require "../sharedParts/footer.php"; ?>
-

@@ -1,4 +1,3 @@
-
 <?php
   #Database connection credentials
   define('DB_HOST', 'localhost');

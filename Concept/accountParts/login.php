@@ -1,7 +1,4 @@
-<!--Header-->
-<?php
-#<!--Initialize Session-->
-if (!isset($_SESSION)) session_start();
+<?php if (!isset($_SESSION)) session_start();
 
   #Include Config File
   require_once "../database/config.php";

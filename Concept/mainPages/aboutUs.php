@@ -1,4 +1,3 @@
-<!--Header-->
 <?php require "../sharedParts/header.php"; ?>
 
   <!---MAIN----->
@@ -15,7 +14,7 @@
           Professional therapy equipment is loaned to families at no charge to provide parents with the tools to help their child progress!  Home visitors work closely with an enrolled child’s therapists to ensure the correct equipment is placed in the child’s home.  Equipment is delivered to families by CKF staff.
         </p>
         <p>
-          CKF also provides a playroom for enrolled families.  The playroom includes a Lite-Gait Walkable, a Somatron Multi-Sensory Ball Pool, an Equipony (simulates therapeutic horseback riding) and therapy swings.  Enrolled families can reserve the room to use with their child’s therapist or for their family.    
+          CKF also provides a playroom for enrolled families.  The playroom includes a Lite-Gait Walkable, a Somatron Multi-Sensory Ball Pool, an Equipony (simulates therapeutic horseback riding) and therapy swings.  Enrolled families can reserve the room to use with their child’s therapist or for their family.
         </p>
       </div>
     </div>

@@ -1,8 +1,4 @@
-<!--Header-->
-
-<?php
-#<!--Initialize Session-->
-if (!isset($_SESSION)) session_start();
+<?php if (!isset($_SESSION)) session_start();
 
 if (!isset($_SESSION["isAdmin"]))
 {
@@ -53,12 +49,12 @@ require_once "../database/config.php";
     			{
     				if ($result["isAdmin"])
     				{
-	    				# create a table to store the information 
+	    				# create a table to store the information
 	    				echo "<tr>";
 	    				echo "<td>".$result["userName"]."</td>";
 	    				echo "<td><input type='text' value='".$result["email"]."'></td>";
 	    				echo "<td><input type='text' value='".$result["phoneNumber"]."'></td>";
-	    				
+
 	    				# check the box if the user is an admin.
 	    				# All should be admin, but did this in case of future changes.
 	    				if($result["isAdmin"])
