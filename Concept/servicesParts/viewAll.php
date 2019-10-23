@@ -24,23 +24,26 @@ $result = mysqli_query($dbCon,"SELECT * FROM ProductType");
 
 echo "<table id=\"itemTable\">
 <tr>
-<th>Prouct Link</th>
+<th>Product Link</th>
 <th>Stock Count</th>
 <th>Reusable</th>
 <th>Image Link</th>
 <th>Product Name</th>
 <th>Request Period</th>
+<th>Operations</th>
 </tr>";
 
 while($row = mysqli_fetch_array($result))
 {
 echo "<tr>";
-echo "<td>" . $row['productLink'] . "</td>";
+echo "<td><a href=\"viewProductType.php?productName=" . $row['productName'] . "\">" . $row['productLink'] . "</a></td>";
 echo "<td>" . $row['stockCount'] . "</td>";
 echo "<td>" . $row['reusable'] . "</td>";
 echo "<td>" . $row['imageLink'] . "</td>";
 echo "<td>" . $row['productName'] . "</td>";
 echo "<td>" . $row['requestPeriod'] . "</td>";
+echo "<td><a type=\"button\" class=\"btn btn-success\" href=\"../adminParts/addItem.php?productName=" . $row['productName'] . "\">Add</a>
+<a type=\"button\" class=\"btn btn-warning\">Edit</a></td>";
 echo "</tr>";
 }
 
