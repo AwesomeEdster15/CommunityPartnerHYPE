@@ -8,88 +8,35 @@ require_once "../database/config.php";
 
 #Define variables as Empty
 $comments = "";
-$productName = "";
 $inStock = "";
 
 $commentsError = "";
-$productNameError = "";
 $inStockError = "";
 
 #Process Form data after form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-  #Validate productName
-  if(empty(trim($_POST["productName"]))) {
-    $productLinkError = "Please enter a product name.";
+  if(empty(trim($_POST["comments"]))) {
+    $commentsError = "Please enter comments.";
   } else {
-    #Prepare SELECT statement
-    $itemIDSQL = "SELECT item FROM itemID WHERE itemID = ?";
-    if($stmt = mysqli_prepare($dbCon, $itemIDSQL)) {
-      #Bind variables to prepared statement
-      mysqli_stmt_bind_param($stmt, "s", $paramItemID);
-      #Set parameters
-      $paramItemID = trim($_POST["productName"]);
-      #Attempt to execute prepared statement
-      if(mysqli_stmt_execute($stmt)) {
-        #Store result
-        mysqli_stmt_store_result($stmt);
-        #If the statement reutrns exactly 1 row
-        if(mysqli_stmt_num_rows($stmt) == 1) {
-          $productName = "This product type already exists.";
-        } else {
-          $productName = trim($_POST["productName"]);
-        }
-      } else {
-        echo "Oops! Something went wrong. Please try again later...";
-      }
-      #Close statment
-      mysqli_stmt_close($stmt);
-    }
+    $comments = trim($_POST["comments"]);
   }
-  if(empty(trim($_POST["stockCount"]))) {
-    $stockCountError = "Please enter the number of items available.";
+  if(empty(trim($_POST["inStock"]))) {
+    $inStockError = "Please specify if this item is in stock.";
   } else {
-    $stockCount = trim($_POST["stockCount"]);
-  }
-  if(empty(trim($_POST["reusable"]))) {
-    $reusableError = "Please specify if this item is reusable.";
-  } else {
-    $reusable = trim($_POST["reusable"]);
-  }
-  if(empty(trim($_POST["productLink"]))) {
-    $productLinkError = "Please enter a product link.";
-  } else {
-    $productLink = trim($_POST["productLink"]);
-  }
-  if(empty(trim($_POST["imageLink"]))) {
-    $imageLinkError = "Please enter the image URL.";
-  } else {
-    $imageLink = trim($_POST["imageLink"]);
-  }
-  if(empty(trim($_POST["productName"]))) {
-    $productNameError = "Please enter an product name.";
-  } else {
-    $productName = trim($_POST["productName"]);
-  }
-	if(empty(trim($_POST["requestPeriod"]))) {
-	  $requestPeriodError = "Please enter request period.";
-  } else {
-    $requestPeriod = trim($_POST["requestPeriod"]);
+    $inStock = trim($_POST["inStock"]);
   }
 
   #Check input errors before inserting into database
-  if(empty($stockCountError) && empty($reusableError) && empty($imageLinkError) && empty($productNameError) && empty($requestPeriodError) && empty($productLinkError)) {
+  if(empty($commentsError) && empty($inStockError)) {
     #Prepare an insert statement
-    $insertProductTypeSQL = "INSERT INTO ProductType (productLink, stockCount, reusable, imageLink, productName, requestPeriod) VALUES (?, ?, ?, ?, ?, ?)";
-    if($stmt = mysqli_prepare($dbCon, $insertProductTypeSQL)) {
+    $insertItemSQL = "INSERT INTO Item (comments, productName, inStock) VALUES (?, ?, ?)";
+    if($stmt = mysqli_prepare($dbCon, $insertItemSQL)) {
       #Bind variables to statement as parameters
-      mysqli_stmt_bind_param($stmt, "sisssi", $paramproductLink, $paramStockCount, $paramReusable, $paramImageLink, $paramProductName, $paramRequestPeriod);
+      mysqli_stmt_bind_param($stmt, "sss", $paramComments, $paramProductName, $paramInStock);
       #Set parameters
-      $paramproductLink = $productLink;
-      $paramStockCount = $stockCount;
-      $paramReusable = $reusable;
-      $paramImageLink = $imageLink;
-      $paramProductName = $productName;
-      $paramRequestPeriod = $requestPeriod;
+      $paramComments = $comments;
+      $paramProductName = $_SESSION['product_name'];
+      $paramInStock = $inStock;
       #Execute prepared statment
       if(mysqli_stmt_execute($stmt)) {
         #Redirect to view all items page --- might change this later to go to the product page itself, but it doesn't exist yet
@@ -103,6 +50,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   }
   #Close connection
   mysqli_close($dbCon);
+}
+else
+{
+  $_SESSION['product_name'] = $_GET['productName'];
 }
 
 ?>
@@ -132,30 +83,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <!--Section 1-->
     <div class="section1">
       <div>
-        <h2>Add Product</h2>
+        <h2>Add <?php echo $_GET['productName'] ?> Item</h2>
         <p>Complete this form to add a product type</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
           <div class="form-group <?php echo (!empty($productNameError)) ? 'has-error' : ''; ?>" style="width: 350px; display: inline-block;">
             <label>Comments</label>
-            <textarea type="text" name="productName" class="form-control" value="<?php echo $productName; ?>"></textarea>
-            <span class="help-block"><?php echo $productNameError; ?></span>
+            <textarea name="comments" class="form-control" value="<?php echo $comments; ?>" style="display: inline-block; vertical-align: top;"></textarea>
+            <span class="help-block"><?php echo $commentsError; ?></span>
           </div>
-          <div class="form-group <?php echo (!empty($productNameError)) ? 'has-error' : ''; ?>" style="width: 350px; display: inline-block;">
-            <label>Product Name</label>
-            <textarea type="text" name="productName" class="form-control" value="<?php echo $productName; ?>"></textarea>
-            <span class="help-block"><?php echo $productNameError; ?></span>
-          </div>
-          <div class="form-group <?php echo (!empty($productNameError)) ? 'has-error' : ''; ?>" style="width: 350px; display: inline-block;">
-            <label>Product Type</label>
-            <div class="dropdown">
-              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-              <span class="caret"></span></button>
-              <ul class="dropdown-menu">
-                <li><a href="#">Item1</a></li>
-                <li><a href="#">Item2</a></li>
-              </ul>
-            </div>
-            <span class="help-block"><?php echo $productNameError; ?></span>
+          <div class="form-group <?php echo (!empty($inStockError)) ? 'has-error' : ''; ?>" style="width: 350px; display: inline-block;">
+            <label>Is In Stock</label>
+            <select list="TrueFalse" name="inStock" class="form-control" value="<?php echo $inStock; ?>">
+              <option value="1">Yes</option>
+              <option value="00">No</option>
+            </select>
+            <span class="help-block"><?php echo $inStockError; ?></span>
           </div>
           <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Submit">
