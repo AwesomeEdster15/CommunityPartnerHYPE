@@ -131,6 +131,19 @@ Lucas Winkleman
 
 
 
-10/24/2019
-  -Move view all page buttons to individual pages
-  -use itemID for unique identifier "ipad1" "ipad2" etc
+10/24/2019 
+  -Everyone
+      -DROP * and RE-RUN SQL
+  -Brandon & Edward
+      -Update Published site
+      -Implement SuperUsers
+      -Work on presentation for tuesday
+  -Brendan & Fish
+      -Actual Image instead of link
+      -Filter by tags or name, not link
+      -Update CSS to allow fancy sizing
+  -Zach & Lucas
+      -Page to view single item
+        -Admin Check In / Check Out Item button
+      -Move view all page buttons to individual pages
+      -use itemID for unique identifier "ipad1" "ipad2" etc
