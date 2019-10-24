@@ -24,26 +24,25 @@ $result = mysqli_query($dbCon,"SELECT * FROM ProductType");
 
 echo "<table id=\"itemTable\">
 <tr>
+<th>Image Link</th>
+<th>Product Name</th>
 <th>Product Link</th>
 <th>Stock Count</th>
 <th>Reusable</th>
-<th>Image Link</th>
-<th>Product Name</th>
 <th>Request Period</th>
-<th>Operations</th>
 </tr>";
 
 while($row = mysqli_fetch_array($result))
 {
 echo "<tr>";
-echo "<td><a href=\"viewProductType.php?productName=" . $row['productName'] . "\">" . $row['productLink'] . "</a></td>";
-echo "<td>" . $row['stockCount'] . "</td>";
-echo "<td>" . $row['reusable'] . "</td>";
-echo "<td>" . $row['imageLink'] . "</td>";
+$image = $row['imageLink'];
+echo "<td> <img src=\"$image\" width=\"100\" height=\"100\" /> </td>";
 echo "<td>" . $row['productName'] . "</td>";
+echo "<td>" . $row['productLink'] . "</td>";
+echo "<td>" . $row['stockCount'] . "</td>";
+//echo "<td>" . $row['imageLink'] . "</td>";
+echo "<td>" . $row['reusable'] . "</td>";
 echo "<td>" . $row['requestPeriod'] . "</td>";
-echo "<td><a type=\"button\" class=\"btn btn-success\" href=\"../adminParts/addItem.php?productName=" . $row['productName'] . "\">Add</a>
-<a type=\"button\" class=\"btn btn-warning\">Edit</a></td>";
 echo "</tr>";
 }
 
@@ -59,7 +58,7 @@ mysqli_close($dbCon);
             table = document.getElementById("itemTable");
             tr = table.getElementsByTagName("tr");
             for (i = 0; i < tr.length; i++) {
-              td = tr[i].getElementsByTagName("td")[0];
+              td = tr[i].getElementsByTagName("td")[1];
               if (td) {
                 txtValue = td.textContent || td.innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
