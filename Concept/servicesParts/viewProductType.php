@@ -52,6 +52,10 @@ while($row = mysqli_fetch_array($result))
 
 ?>
 
+<section style="text-align: center; margin: 15px;">
+  <?php echo "<a type=\"button\" class=\"btn btn-warning\">Edit " . $_GET['productName'] . "</a>"; ?>
+</section>
+
         <script>
           function search() {
             var input, filter, table, tr, td, i, txtValue;
@@ -98,7 +102,7 @@ while($row = mysqli_fetch_array($result))
 {
   $index = $index + 1;
   echo "<tr>";
-  echo "<td>" . $row['productName'] . "</td>";
+  echo "<td><a href=\"viewItem.php?itemID=" . $row['itemID'] . "\">" . $row['productName'] . "</a></td>";
   echo "<td>" . $index . "</td>";
   echo "<td>" . $row['comments'] . "</td>";
   echo "<td>" . $row['inStock'] . "</td>";
@@ -108,6 +112,9 @@ mysqli_close($dbCon);
 ?>
       </table>
 
+    </section>
+    <section style="text-align: center; margin: 15px;">
+      <?php echo "<a type=\"button\" class=\"btn btn-success\" href=\"../adminParts/addItem.php?productName=" . $_GET["productName"] . "\" >Add Items</a>"; ?>
     </section>
   </div>
 

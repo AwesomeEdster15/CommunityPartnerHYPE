@@ -36,8 +36,8 @@ while($row = mysqli_fetch_array($result))
 {
 echo "<tr>";
 $image = $row['imageLink'];
-echo "<td> <img src=\"$image\" width=\"100\" height=\"100\" /> </td>";
-echo "<td>" . $row['productName'] . "</td>";
+echo "<td> <a href=\"viewProductType.php?productName=" . $row['productName'] . "\"><img src=\"$image\" width=\"100\" height=\"100\" /></a> </td>";
+echo "<td><a href=\"viewProductType.php?productName=" . $row['productName'] . "\">" . $row['productLink'] . "</a></td>";
 echo "<td>" . $row['productLink'] . "</td>";
 echo "<td>" . $row['stockCount'] . "</td>";
 //echo "<td>" . $row['imageLink'] . "</td>";
@@ -70,6 +70,9 @@ mysqli_close($dbCon);
             }
           }
          </script>
+    </section>
+    <section style="text-align: center; margin: 15px;">
+      <?php echo "<a type=\"button\" class=\"btn btn-success\" href=\"../adminParts/addProductType.php\">Add Product Type</a>"; ?>
     </section>
   </div>
 

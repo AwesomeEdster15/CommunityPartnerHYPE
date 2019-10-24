@@ -143,7 +143,7 @@ Lucas Winkleman
       -Filter by tags or name, not link
       -Update CSS to allow fancy sizing
   -Zach & Lucas
-      -Page to view single item
+      -(DONE)Page to view single item
         -Admin Check In / Check Out Item button
-      -Move view all page buttons to individual pages
+      -(DONE)Move view all page buttons to individual pages
       -use itemID for unique identifier "ipad1" "ipad2" etc
