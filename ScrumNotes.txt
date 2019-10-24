@@ -127,3 +127,10 @@ Lucas Winkleman
       -Check In / Check Out Functionality
         -Admin button to change status
     -Pull Data from Database
+
+
+
+
+10/24/2019
+  -Move view all page buttons to individual pages
+  -use itemID for unique identifier "ipad1" "ipad2" etc
