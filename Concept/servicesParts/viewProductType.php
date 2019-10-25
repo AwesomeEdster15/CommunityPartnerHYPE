@@ -95,6 +95,7 @@ echo "<table id=\"itemTable\">
 <th>Index</th>
 <th>Comments</th>
 <th>In Stock</th>
+<th>Operations</th>
 </tr>";
 $index = 0;
 
@@ -106,6 +107,14 @@ while($row = mysqli_fetch_array($result))
   echo "<td>" . $index . "</td>";
   echo "<td>" . $row['comments'] . "</td>";
   echo "<td>" . $row['inStock'] . "</td>";
+  if($row['inStock'] == true)
+  {
+    echo "<td><a class=\"btn btn-primary\" href=\"checkOut.php?itemID=" . $row['itemID'] . "\">Check Out</a></td>";
+  }
+  else
+  {
+    echo "<td><a class=\"btn btn-primary\" href=\"checkIn.php?itemID=" . $row['itemID'] . "\">Check In</a></td>";
+  }
   echo "</tr>";
 }
 mysqli_close($dbCon);

@@ -11,6 +11,7 @@ $result = mysqli_query($dbCon,"SELECT * FROM Item WHERE itemID='" . $_GET['itemI
 while($row = mysqli_fetch_array($result))
 {
   $itemName = $row['productName'] . $row['itemID'];
+  $itemID = $row['itemID'];
   echo "<!--Section 1-->
   <div class=\"section1\">
     <div>
@@ -37,14 +38,22 @@ while($row = mysqli_fetch_array($result))
   <label>Is In Stock</label>
   <p>" . $row['inStock'] . "</p>
   </div>";
+
+  echo "<section style=\"text-align: center;\">
+  <a type=\"button\" class=\"btn btn-warning\" style=\"margin: 15px;\">Edit " . $itemName . "</a>";
+  if($row['inStock'] == true)
+  {
+    echo "<td><a class=\"btn btn-primary\" href=\"checkOut.php?itemID=" . $itemID . "\">Check Out</a></td>";
+  }
+  else
+  {
+    echo "<td><a class=\"btn btn-primary\" href=\"checkIn.php?itemID=" . $itemID . "\">Check In</a></td>";
+  }
+  echo "</section>";
 }
 mysqli_close($dbCon);
 
 ?>
-
-<section style="text-align: center; margin: 15px;">
-  <?php echo "<a type=\"button\" class=\"btn btn-warning\">Edit " . $itemName . "</a>"; ?>
-</section>
 
         <script>
           function search() {
