@@ -53,7 +53,7 @@ while($row = mysqli_fetch_array($result))
 ?>
 
 <section style="text-align: center; margin: 15px;">
-  <?php echo "<a type=\"button\" class=\"btn btn-warning\">Edit " . $_GET['productName'] . "</a>"; ?>
+  <?php echo "<a type=\"button\" class=\"btn btn-warning\" href=\"../adminParts/editProductType.php?productName=" . $_GET['productName'] . "\">Edit " . $_GET['productName'] . "</a>"; ?>
 </section>
 
         <script>

@@ -40,7 +40,7 @@ while($row = mysqli_fetch_array($result))
   </div>";
 
   echo "<section style=\"text-align: center;\">
-  <a type=\"button\" class=\"btn btn-warning\" style=\"margin: 15px;\">Edit " . $itemName . "</a>";
+  <a type=\"button\" class=\"btn btn-warning\" style=\"margin: 15px;\" href=\"../adminParts/editItem.php?itemID=" . $itemID . "\">Edit " . $itemName . "</a>";
   if($row['inStock'] == true)
   {
     echo "<td><a class=\"btn btn-primary\" href=\"checkOut.php?itemID=" . $itemID . "\">Check Out</a></td>";
