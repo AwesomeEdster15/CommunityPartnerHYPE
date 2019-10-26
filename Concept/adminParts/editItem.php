@@ -7,19 +7,22 @@ if (!isset($_SESSION)) session_start();
 require_once "../database/config.php";
 
 #Define variables as Empty
+$itemName = "";
 $comments = "";
 $inStock = "";
 
+$itemNameError = "";
 $commentsError = "";
 $inStockError = "";
 
 #Process Form data after form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-  if(empty(trim($_POST["comments"]))) {
-    $commentsError = "Please enter comments.";
+  if(empty(trim($_POST["itemName"]))) {
+    $itemNameError = "Please enter item name.";
   } else {
-    $comments = trim($_POST["comments"]);
+    $itemName = trim($_POST["itemName"]);
   }
+  $comments = $_POST["comments"];
   if(empty(trim($_POST["inStock"]))) {
     $inStockError = "Please specify if this item is in stock.";
   } else {
@@ -29,11 +32,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   #Check input errors before inserting into database
   if(empty($commentsError) && empty($inStockError)) {
     #Prepare an insert statement
-    $insertItemSQL = "UPDATE Item SET comments=?, inStock=? WHERE ItemID=" . $_SESSION['itemID'] . ";";
+    $insertItemSQL = "UPDATE Item SET itemName=?, comments=?, inStock=? WHERE ItemID=" . $_SESSION['itemID'] . ";";
     if($stmt = mysqli_prepare($dbCon, $insertItemSQL)) {
       #Bind variables to statement as parameters
-      mysqli_stmt_bind_param($stmt, "ss", $paramComments, $paramInStock);
+      mysqli_stmt_bind_param($stmt, "sss", $paramItemName, $paramComments, $paramInStock);
       #Set parameters
+      $paramItemName = $itemName;
       $paramComments = $comments;
       $paramInStock = $inStock;
       #Execute prepared statment
@@ -55,6 +59,7 @@ else
   $result = mysqli_query($dbCon,"SELECT * FROM Item WHERE itemID='" . $_GET['itemID'] . "';");
   while($row = mysqli_fetch_array($result))
   {
+    $itemName = $row['itemName'];
     $comments = $row['comments'];
     $inStock = $row['inStock'];
     $_SESSION['product_name'] = $row['productName'];
@@ -92,10 +97,10 @@ else
         <h2>Edit Item</h2>
         <p>Complete this form to add a product type</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-          <div class="form-group <?php echo (!empty($productNameError)) ? 'has-error' : ''; ?>" style="width: 350px; display: inline-block;">
-            <label>Comments</label>
-            <textarea name="comments" class="form-control" style="display: inline-block; vertical-align: top;"><?php echo $comments; ?></textarea>
-            <span class="help-block"><?php echo $commentsError; ?></span>
+          <div class="form-group <?php echo (!empty($itemNameError)) ? 'has-error' : ''; ?>" style="width: 350px; display: inline-block;">
+            <label>Item Name</label>
+            <textarea name="itemName" class="form-control" style="display: inline-block; vertical-align: top;"><?php echo $itemName; ?></textarea>
+            <span class="help-block"><?php echo $itemNameError; ?></span>
           </div>
           <div class="form-group <?php echo (!empty($inStockError)) ? 'has-error' : ''; ?>" style="width: 350px; display: inline-block;">
             <label>Is In Stock</label>
@@ -114,6 +119,11 @@ else
               ?>
             </select>
             <span class="help-block"><?php echo $inStockError; ?></span>
+          </div>
+          <div class="form-group" style="width: 350px;">
+            <label>Comments</label>
+            <textarea name="comments" class="form-control" style="display: inline-block; vertical-align: top;"><?php echo $comments; ?></textarea>
+            <span class="help-block"><?php echo $commentsError; ?></span>
           </div>
           <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Submit">

@@ -146,4 +146,4 @@ Lucas Winkleman
       -(DONE)Page to view single item
         -(DONE)Admin Check In / Check Out Item button
       -(DONE)Move view all page buttons to individual pages
-      -use itemID for unique identifier "ipad1" "ipad2" etc
+      -(DONE)use itemID for unique identifier "ipad1" "ipad2" etc

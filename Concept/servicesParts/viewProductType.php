@@ -92,8 +92,7 @@ $result = mysqli_query($dbCon,"SELECT * FROM Item WHERE ProductName = '" . $_GET
 
 echo "<table id=\"itemTable\">
 <tr>
-<th>Product Name</th>
-<th>Index</th>
+<th>Item Name</th>
 <th>Comments</th>
 <th>In Stock</th>
 <th>Operations</th>
@@ -104,8 +103,7 @@ while($row = mysqli_fetch_array($result))
 {
   $index = $index + 1;
   echo "<tr>";
-  echo "<td><a href=\"viewItem.php?itemID=" . $row['itemID'] . "\">" . $row['productName'] . "</a></td>";
-  echo "<td>" . $index . "</td>";
+  echo "<td><a href=\"viewItem.php?itemID=" . $row['itemID'] . "\">" . $row['itemName'] . "</a></td>";
   echo "<td>" . $row['comments'] . "</td>";
   echo "<td>" . $row['inStock'] . "</td>";
   if($row['inStock'] == true)

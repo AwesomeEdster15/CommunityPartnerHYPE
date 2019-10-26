@@ -27,6 +27,9 @@ CREATE TABLE Patron (
 -- ALTER TABLE Item CHANGE itemID itemID INT(10) NOT NULL AUTO_INCREMENT;
 -- ALTER TABLE Reservation CHANGE reservationID reservationID INT(10) NOT NULL AUTO_INCREMENT;
 
+-- To add the itemName field to the Item table:
+-- ALTER TABLE Item ADD itemName VARCHAR(100);
+
 CREATE TABLE ProductType (
     imageLink VARCHAR(1000),
     productName VARCHAR(100),
@@ -48,6 +51,7 @@ CREATE TABLE ProductKeywords (
 
 CREATE TABLE Item (
     itemID INTEGER(10) NOT NULL AUTO_INCREMENT,
+    itemName VARCHAR(100),
     comments VARCHAR(1000),
     productName VARCHAR(100),
     inStock BOOLEAN,

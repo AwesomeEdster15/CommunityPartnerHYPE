@@ -10,7 +10,7 @@ $result = mysqli_query($dbCon,"SELECT * FROM Item WHERE itemID='" . $_GET['itemI
 
 while($row = mysqli_fetch_array($result))
 {
-  $itemName = $row['productName'] . $row['itemID'];
+  $itemName = $row['itemName'];
   $itemID = $row['itemID'];
   echo "<!--Section 1-->
   <div class=\"section1\">
@@ -27,8 +27,12 @@ while($row = mysqli_fetch_array($result))
 
 
   echo "<div class=\"form-group\" style=\"width: 350px; display: inline-block;\">
+  <label>Item Name</label>
+  <p>" . $row['itemName'] . "</p>
+  </div>";
+  echo "<div class=\"form-group\" style=\"width: 350px; display: inline-block;\">
   <label>Product Name</label>
-  <p>" . $row['productName'] . "</p>
+  <p><a href=\"viewProductType.php?productName=" . $row['productName'] . "\">" . $row['productName'] . "</a></p>
   </div>";
   echo "<div class=\"form-group\" style=\"width: 350px; display: inline-block;\">
   <label>Comments</label>

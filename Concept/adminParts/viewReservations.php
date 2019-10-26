@@ -20,14 +20,15 @@
 <?php
 	require_once "../database/config.php";
 
-$result = mysqli_query($dbCon,"SELECT * FROM Reservation;");
+$result = mysqli_query($dbCon,"SELECT * FROM Reservation LEFT JOIN Item on Reservation.itemID=Item.itemID;");
 
 echo "<table id=\"itemTable\">
 <tr>
 <th>User Name</th>
+<th>Product Name</th>
+<th>Item Name</th>
 <th>Date In</th>
 <th>Date Out</th>
-<th>Item ID</th>
 <th>Expected Return Date</th>
 </tr>";
 
@@ -35,9 +36,10 @@ while($row = mysqli_fetch_array($result))
 {
 echo "<tr>";
 echo "<td>" . $row['userName'] . "</td>";
+echo "<td><a href=\"../servicesParts/viewProductType.php?productName=" . $row['productName'] . "\">" . $row['productName'] . "</a></td>";
+echo "<td><a href=\"../servicesParts/viewItem.php?itemID=" . $row['itemID'] . "\">" . $row['itemName'] . "</a></td>";
 echo "<td>" . $row['dateIn'] . "</td>";
 echo "<td>" . $row['dateOut'] . "</td>";
-echo "<td>" . $row['itemID'] . "</td>";
 echo "<td>" . $row['expectedReturnDate'] . "</td>";
 echo "</tr>";
 }

@@ -48,7 +48,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       mysqli_stmt_close($stmt);
     }
   }
-  if(empty(trim($_POST["stockCount"]))) {
+  if(isset($_POST["stockCount"]) == false) {
     $stockCountError = "Please enter the number of items available.";
   } else {
     $stockCount = trim($_POST["stockCount"]);
