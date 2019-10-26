@@ -53,7 +53,8 @@ while($row = mysqli_fetch_array($result))
 ?>
 
 <section style="text-align: center; margin: 15px;">
-  <?php echo "<a type=\"button\" class=\"btn btn-warning\" href=\"../adminParts/editProductType.php?productName=" . $_GET['productName'] . "\">Edit " . $_GET['productName'] . "</a>"; ?>
+  <?php if (isset($_SESSION["isAdmin"])) {echo (($_SESSION["isAdmin"]) ?
+        "<a type=\"button\" class=\"btn btn-warning\" href=\"../adminParts/editProductType.php?productName=" . $_GET['productName'] . "\">Edit " . $_GET['productName'] . "</a>" : "");} ?>
 </section>
 
         <script>
@@ -123,7 +124,8 @@ mysqli_close($dbCon);
 
     </section>
     <section style="text-align: center; margin: 15px;">
-      <?php echo "<a type=\"button\" class=\"btn btn-success\" href=\"../adminParts/addItem.php?productName=" . $_GET["productName"] . "\" >Add Items</a>"; ?>
+    <?php if (isset($_SESSION["isAdmin"])) {echo (($_SESSION["isAdmin"]) ?
+      "<a type=\"button\" class=\"btn btn-success\" href=\"../adminParts/addItem.php?productName=" . $_GET["productName"] . "\" >Add Items</a>" : "");} ?>
     </section>
   </div>
 

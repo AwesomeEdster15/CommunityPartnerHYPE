@@ -39,8 +39,10 @@ while($row = mysqli_fetch_array($result))
   <p>" . $row['inStock'] . "</p>
   </div>";
 
-  echo "<section style=\"text-align: center;\">
-  <a type=\"button\" class=\"btn btn-warning\" style=\"margin: 15px;\" href=\"../adminParts/editItem.php?itemID=" . $itemID . "\">Edit " . $itemName . "</a>";
+  echo "<section style=\"text-align: center;\">";
+
+  if (isset($_SESSION["isAdmin"])) {echo (($_SESSION["isAdmin"]) ?
+    "<a type=\"button\" class=\"btn btn-warning\" style=\"margin: 15px;\" href=\"../adminParts/editItem.php?itemID=" . $itemID . "\">Edit " . $itemName . "</a>" : "");}
   if($row['inStock'] == true)
   {
     echo "<td><a class=\"btn btn-primary\" href=\"checkOut.php?itemID=" . $itemID . "\">Check Out</a></td>";

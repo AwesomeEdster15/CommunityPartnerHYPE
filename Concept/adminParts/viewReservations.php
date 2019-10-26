@@ -5,9 +5,9 @@
     <!--Section 1-->
     <div class="section1">
       <div>
-        <h1 class="title">Products List</h1>
+        <h1 class="title">Reservations</h1>
         <p>
-          This is where you will be able to view all products.
+          This is where you will be able to view all reservations.
         </p>
       </div>
     </div>
@@ -20,29 +20,25 @@
 <?php
 	require_once "../database/config.php";
 
-$result = mysqli_query($dbCon,"SELECT * FROM ProductType");
+$result = mysqli_query($dbCon,"SELECT * FROM Reservation;");
 
 echo "<table id=\"itemTable\">
 <tr>
-<th>Image Link</th>
-<th>Product Name</th>
-<th>Product Link</th>
-<th>Stock Count</th>
-<th>Reusable</th>
-<th>Request Period</th>
+<th>User Name</th>
+<th>Date In</th>
+<th>Date Out</th>
+<th>Item ID</th>
+<th>Expected Return Date</th>
 </tr>";
 
 while($row = mysqli_fetch_array($result))
 {
 echo "<tr>";
-$image = $row['imageLink'];
-echo "<td> <a href=\"viewProductType.php?productName=" . $row['productName'] . "\"><img src=\"$image\" width=\"100\" height=\"100\" /></a> </td>";
-echo "<td><a href=\"viewProductType.php?productName=" . $row['productName'] . "\">" . $row['productName'] . "</a></td>";
-echo "<td>" . $row['productLink'] . "</td>";
-echo "<td>" . $row['stockCount'] . "</td>";
-//echo "<td>" . $row['imageLink'] . "</td>";
-echo "<td>" . $row['reusable'] . "</td>";
-echo "<td>" . $row['requestPeriod'] . "</td>";
+echo "<td>" . $row['userName'] . "</td>";
+echo "<td>" . $row['dateIn'] . "</td>";
+echo "<td>" . $row['dateOut'] . "</td>";
+echo "<td>" . $row['itemID'] . "</td>";
+echo "<td>" . $row['expectedReturnDate'] . "</td>";
 echo "</tr>";
 }
 
@@ -58,7 +54,7 @@ mysqli_close($dbCon);
             table = document.getElementById("itemTable");
             tr = table.getElementsByTagName("tr");
             for (i = 0; i < tr.length; i++) {
-              td = tr[i].getElementsByTagName("td")[1];
+              td = tr[i].getElementsByTagName("td")[0];
               if (td) {
                 txtValue = td.textContent || td.innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -72,7 +68,6 @@ mysqli_close($dbCon);
          </script>
     </section>
     <section style="text-align: center; margin: 15px;">
-    <?php if (isset($_SESSION["isAdmin"])) {echo (($_SESSION["isAdmin"]) ? "<a type=\"button\" class=\"btn btn-success\" href=\"../adminParts/addProductType.php\">Add Product Type</a>" : "");} ?>
     </section>
   </div>
 
