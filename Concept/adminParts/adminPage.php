@@ -32,12 +32,13 @@ require_once "../database/config.php";
     <!--Section 2-->
     <section>
     	<table class="adminTable" cellspacing="10">
-    		<label>ADMINS</label>
+				<label>ADMINS</label>
+				<table id='itemTable'>
     		<tr class="adminTable">
-    			<td>userName</td>
-    			<td>Email</td>
-    			<td>phoneNumber</td>
-    			<td>isAdmin</td>
+    			<th>userName</th>
+    			<th>Email</th>
+    			<th>phoneNumber</th>
+    			<th>isAdmin</th>
     		</tr>
 
     		<!-- List all of the admins -->
@@ -49,21 +50,34 @@ require_once "../database/config.php";
     			{
     				if ($result["isAdmin"])
     				{
-	    				# create a table to store the information
-	    				echo "<tr>";
-	    				echo "<td>".$result["userName"]."</td>";
-	    				echo "<td><input type='text' value='".$result["email"]."'></td>";
-	    				echo "<td><input type='text' value='".$result["phoneNumber"]."'></td>";
+							# create a table to store the information
+							echo "<tr>";
+							echo "<td><div class='form-group' style='width: 350px; display: inline-block;'>
+									<p>".$result["userName"]."</p>
+								</div></td>";
+
+							echo "<td><div class='form-group' style='width: 350px; display: inline-block;'>
+									<p>".$result["email"]."</p>
+								</div></td>";
+
+							echo "<td><div class='form-group' style='width: 350px; display: inline-block;'>
+									<p>".$result["phoneNumber"]."</p>
+								</div></td>";
 
 	    				# check the box if the user is an admin.
 	    				# All should be admin, but did this in case of future changes.
-	    				if($result["isAdmin"])
-							echo "<td><input type='checkbox' checked></td>";
+						if($result["isAdmin"])
+						{
+							echo "<td><div class='form-group' style='width: 350px; display: inline-block;'>
+								<input type='checkbox' checked></div></td>";
+						}
 						else
-							echo "<td><input type='checkbox' unchecked></td>";
+						{
+							echo "<td><div class='form-group' style='width: 350px; display: inline-block;'>
+							<input type='checkbox' unchecked></div></td>";
+						}
 
 						# The Submit button at the end of each line
-						echo "<td><input type='submit' class='btn btn-primary' value='Submit'></td>";
 	    				echo "</tr>";
 	    			}
     			}
@@ -100,19 +114,19 @@ require_once "../database/config.php";
 	    					$result = mysqli_fetch_array($query2);
 	    					if($result['userName'])
 	    					{
-		    					echo "<table class='userTable' cellspacing='10'>";
+		    					echo "<table id='itemTable'>";
 		    					echo "<tr class='userTable'>";
-					    		echo "<td>userName</td>";
-					    		echo "<td>Email</td>";
-					    		echo "<td>phoneNumber</td>";
-					    		echo "<td>isAdmin</td>";
+					    		echo "<th>userName</th>";
+					    		echo "<th>Email</th>";
+					    		echo "<th>phoneNumber</th>";
+					    		echo "<th>isAdmin</th>";
 				    			echo "</tr>";
 								echo "<form action='".htmlspecialchars($_SERVER["PHP_SELF"])."' method='post' name='updateUser'>";
-				    			echo "<div class='form-group' style='width: 350px; display:inline;'>";
+				    			echo "<div class='form-group' style='width: 350px; display:inline-block;'>";
 								echo "<tr>";
-								echo "<td><input type='text' name='userName' value='".$result['userName']."'</input></td>";
-								echo "<td><input type='text' name='email' value='".$result["email"]."'></td>";
-								echo "<td><input type='text' name='phoneNumber' value='".$result["phoneNumber"]."'></td>";
+								echo "<td><input type='text' name='userName' value='".$result['userName']."'></td>";
+								echo "<td><input type='text' name='email' value='".$result['email']."'></td>";
+								echo "<td><input type='text' name='phoneNumber' value='".$result['phoneNumber']."'></td>";
 								if($result["isAdmin"])
 								{
 									echo "<td><input type='checkbox' name='isAdmin' checked></td>";
@@ -121,8 +135,8 @@ require_once "../database/config.php";
 								{
 									echo "<td><input type='checkbox' name='isAdmin' unchecked></td>";
 								}
-								echo "<td><input name='update' type='submit' class='btn btn-primary' value='Submit'></td>";
-								echo "<td><span class='help-block'><?php echo $usernameError; ?></span></td>";
+								echo "<td><input name='update' type='submit' class='btn btn-primary' value='submit'></td>";
+								echo "<span class='help-block'>".$usernameError."</span>";
 								echo "</tr>";
 				    			echo "</div>";
 				    			echo "</form>";
