@@ -135,9 +135,9 @@ Lucas Winkleman
   -Everyone
       -DROP * and RE-RUN SQL
   -Brandon & Edward
-      -Update Published site
-      -Implement SuperUsers
-      -Work on presentation for tuesday
+      -(DONE)Update Published site
+      -(DONE)Implement SuperUsers
+      -(DONE)Work on presentation for tuesday
   -Brendan & Fish
       -Actual Image instead of link
       -Filter by tags or name, not link
