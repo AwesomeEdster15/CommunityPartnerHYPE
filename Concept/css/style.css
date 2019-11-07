@@ -20,7 +20,7 @@ body{
   top: 0;
   left: 0;
   padding: 0 100px;
-  background: #FFFFFF url(../imgs/children.jpg) no-repeat;
+  background: #000000 url(../imgs/children.jpg) no-repeat;
   background-position: center;
   background-size: cover;
   width: 100%;

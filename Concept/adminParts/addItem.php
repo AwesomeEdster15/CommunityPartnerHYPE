@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $itemName = trim($_POST["itemName"]);
   }
   $comments = trim($_POST["comments"]);
-  
+
   if(empty(trim($_POST["inStock"]))) {
     $inStockError = "Please specify if this item is in stock.";
   } else {

@@ -130,8 +130,7 @@ Lucas Winkleman
 
 
 
-
-10/24/2019 
+10/24/2019
   -Everyone
       -DROP * and RE-RUN SQL
   -Brandon & Edward
@@ -139,7 +138,7 @@ Lucas Winkleman
       -(DONE)Implement SuperUsers
       -(DONE)Work on presentation for tuesday
   -Brendan & Fish
-      -Actual Image instead of link
+      -(DONE)Actual Image instead of link
       -Filter by tags or name, not link
       -Update CSS to allow fancy sizing
   -Zach & Lucas
@@ -147,3 +146,26 @@ Lucas Winkleman
         -(DONE)Admin Check In / Check Out Item button
       -(DONE)Move view all page buttons to individual pages
       -(DONE)use itemID for unique identifier "ipad1" "ipad2" etc
+
+
+
+11/07/2019
+  -Lucas & Zach
+     -Reservation -> Users can request
+                  -> Admins can check out/in
+                  -> Must be signed in to request
+     -Inquire upon TCP about what they want on the dashboard
+   -Brandon & Edward
+     -My account editable -> Change your password/email etc. (not username)
+     -Move the sign out button
+     -Auto sign out on browser/window close
+     -Make "viewProductType.php" admin only
+     -Look into email verification
+   -Paul & Brendan
+     -Reports -> what is check out most often etc.
+     -Update the CSS "more polish. Something modern."
+     -Image links to product links
+     -Product name links to product page for ADMINS
+        -Motivational quote of the day in Footer (Priority #1)
+        -Look into automated emails (Not a Priority)
+        -Easter Eggs (Priority #6)
