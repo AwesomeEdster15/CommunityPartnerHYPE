@@ -1,4 +1,11 @@
-<?php require "../sharedParts/header.php"; ?>
+<?php require "../sharedParts/header.php"; 
+
+if (!isset($_SESSION["isAdmin"]))
+{
+	header("Location: ../accountParts/login.php");
+}
+
+?>
 
   <!---MAIN----->
   <div class="main">

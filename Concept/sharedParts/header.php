@@ -25,7 +25,15 @@
           <li><a href="../mainPages/services.php">Services</a></li>
           <li><a href="../mainPages/aboutUs.php">About Us</a></li>
           <?php if (isset($_SESSION["isAdmin"])) {echo (($_SESSION["isAdmin"]) ? "<li><a href=\"../adminParts/adminPage.php\">Admin</a></li>" : ''); } ?>
-          <li><a href="../mainPages/myAccount.php"><?php echo (isset($_SESSION["username"]) ? $_SESSION["username"] : "My Account") ?></a></li>
+					<li><a href="../mainPages/myAccount.php"><?php echo (isset($_SESSION["username"]) ? $_SESSION["username"] : "My Account") ?></a></li>
+					<?php 
+						if(!isset($_SESSION["loggedin"])) {
+							echo "<li><a href=\"../accountParts/login.php\">Sign In</a></li>";
+						}
+						else {
+							echo "<li><a href=\"../accountParts/logout.php\">Sign Out</a></li>";
+						}
+					?>
         </ul>
       </nav>
     </div>

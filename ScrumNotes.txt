@@ -2,7 +2,7 @@ TEAM HYPE
 Zachary Bax
 Paul Fish
 Edward Koch
-Brandon McCurray
+Brandon McCurry
 Lucas Winkleman
 
 08/21/2019
@@ -157,10 +157,11 @@ Lucas Winkleman
      -Inquire upon TCP about what they want on the dashboard
    -Brandon & Edward
      -My account editable -> Change your password/email etc. (not username)
-     -Move the sign out button
+     -(DONE)Move the sign out button
      -Auto sign out on browser/window close
-     -Make "viewProductType.php" admin only
+     -(DONE)Make "viewProductType.php" admin only
      -Look into email verification
+		 -figure out how to remove admins
    -Paul & Brendan
      -Reports -> what is check out most often etc.
      -Update the CSS "more polish. Something modern."
