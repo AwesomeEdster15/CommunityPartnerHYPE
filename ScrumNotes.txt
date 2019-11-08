@@ -158,10 +158,10 @@ Lucas Winkleman
    -Brandon & Edward
      -My account editable -> Change your password/email etc. (not username)
      -(DONE)Move the sign out button
-     -Auto sign out on browser/window close
+     -(DONE)Auto sign out on browser/window close
      -(DONE)Make "viewProductType.php" admin only
      -Look into email verification
-		 -figure out how to remove admins
+     -figure out how to remove admins
    -Paul & Brendan
      -Reports -> what is check out most often etc.
      -Update the CSS "more polish. Something modern."
