@@ -25,7 +25,9 @@
       <div style="width: 350px; display: inline-block;">
         <h3>Phone Number</h3>
         <h4> <?php echo $_SESSION["phoneNumber"] ?></h4>
-      </div>
+			</div>
+			<br>
+			<a class="btn btn-primary" href="changeInfo.php">Edit profile</a>
     </div>
   </div>
   <!--Section 2-->

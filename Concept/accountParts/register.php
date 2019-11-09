@@ -73,8 +73,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   #Validate PhoneNumber
   if(empty(trim($_POST["phoneNumber"]))) {
     $phoneNumberError = "Please enter a phone number.";
-  } else {
-    $phoneNumber = trim($_POST["phoneNumber"]);
+	} elseif(!preg_match("/^[0-9]{3}[-]?[0-9]{3}[-]?[0-9]{4}$/", $_POST["phoneNumber"])) {
+ 		$phoneNumberError = "Invalid format.";
+	}	else {
+		$phoneNumber = trim($_POST["phoneNumber"]);
+		$phoneNumber = str_replace("-","",$phoneNumber);
   }
   #Validate Password
   if(empty(trim($_POST["password"]))) {
@@ -97,7 +100,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   #Validate Email
   if(empty(trim($_POST["email"]))) {
     $emailError = "Please enter an email.";
-  } else {
+	} elseif (!preg_match('/^[A-Za-z0-9]+@[A-Za-z0-9]+\.[A-Za-z0-9\.]+$/', $_POST["email"])) {
+		$emailError = "Invalid format."; 
+	} else {
     $email = trim($_POST["email"]);
   }
   #Validate confirm Password
@@ -127,7 +132,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       #Execute prepared statment
       if(mysqli_stmt_execute($stmt)) {
         #Redirect to Login page
-        header("location: ../mainPages/myAccount.php");
+        header("location: login.php");
       } else {
         echo "Oops! Something went wrong. Please try again later.";
       }
@@ -189,7 +194,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
           </div>
           <div class="form-group <?php echo (!empty($phoneNumberError)) ? 'has-error' : ''; ?>" style="width: 350px; display: inline-block;">
             <label>Phone Number (123-456-7890)</label>
-            <input type="tel" placeholder="XXX-XXX-XXXX" maxlength="10" name="phoneNumber" class="form-control" value="<?php echo $phoneNumber; ?>">
+            <input type="tel" placeholder="XXX-XXX-XXXX" maxlength="12" name="phoneNumber" class="form-control" value="<?php echo $phoneNumber; ?>">
             <span class="help-block"><?php echo $phoneNumberError; ?></span>
           </div>
           <br>

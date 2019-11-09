@@ -156,11 +156,12 @@ Lucas Winkleman
                   -> Must be signed in to request
      -Inquire upon TCP about what they want on the dashboard
    -Brandon & Edward
-     -My account editable -> Change your password/email etc. (not username)
+     -(DONE)My account editable -> Change your password/email etc. (not username)
      -(DONE)Move the sign out button
-     -Auto sign out on browser/window close
+     -(DONE)Auto sign out on browser/window close
      -(DONE)Make "viewProductType.php" admin only
-     -Look into email verification
+     -Look into email verification (nah)
+		 -(DONE)email, phoneNumber, and password validations
 		 -figure out how to remove admins
    -Paul & Brendan
      -Reports -> what is check out most often etc.
