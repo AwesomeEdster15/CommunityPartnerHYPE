@@ -14,7 +14,7 @@ if (!isset($_SESSION["isAdmin"]))
       <div>
         <h1 class="title">Reservations</h1>
         <p>
-          This is where you will be able to view all reservations.
+          This is where you will be able to view reservations.
         </p>
       </div>
     </div>
@@ -25,9 +25,20 @@ if (!isset($_SESSION["isAdmin"]))
     <!--Section 3-->
     <section>
 <?php
-	require_once "../database/config.php";
+  require_once "../database/config.php";
 
-$result = mysqli_query($dbCon,"SELECT * FROM Reservation LEFT JOIN Item on Reservation.itemID=Item.itemID;");
+  $selectString = "";
+
+  if(isset($_GET["userName"]) == false)
+  {
+    $selectString = "SELECT * FROM Reservation LEFT JOIN Item on Reservation.itemID=Item.itemID;";
+  }
+  else
+  {
+    $selectString = "SELECT * FROM Reservation LEFT JOIN Item on Reservation.itemID=Item.itemID WHERE Reservation.userName = '" . $_GET['userName'] . "';";
+  }
+
+$result = mysqli_query($dbCon, $selectString);
 
 echo "<table id=\"itemTable\">
 <tr>
@@ -37,6 +48,7 @@ echo "<table id=\"itemTable\">
 <th>Date In</th>
 <th>Date Out</th>
 <th>Expected Return Date</th>
+<th>Status</th>
 </tr>";
 
 while($row = mysqli_fetch_array($result))
@@ -48,6 +60,7 @@ echo "<td><a href=\"../servicesParts/viewItem.php?itemID=" . $row['itemID'] . "\
 echo "<td>" . $row['dateIn'] . "</td>";
 echo "<td>" . $row['dateOut'] . "</td>";
 echo "<td>" . $row['expectedReturnDate'] . "</td>";
+echo "<td><a href=\"../servicesParts/viewReservation.php?reservationID=" . $row['reservationID'] . "\">" . $row['status'] . "</a></td>";
 echo "</tr>";
 }
 

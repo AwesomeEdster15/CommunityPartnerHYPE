@@ -95,7 +95,6 @@ echo "<table id=\"itemTable\">
 <th>Item Name</th>
 <th>Comments</th>
 <th>In Stock</th>
-<th>Operations</th>
 </tr>";
 $index = 0;
 
@@ -106,14 +105,6 @@ while($row = mysqli_fetch_array($result))
   echo "<td><a href=\"viewItem.php?itemID=" . $row['itemID'] . "\">" . $row['itemName'] . "</a></td>";
   echo "<td>" . $row['comments'] . "</td>";
   echo "<td>" . $row['inStock'] . "</td>";
-  if($row['inStock'] == true)
-  {
-    echo "<td><a class=\"btn btn-primary\" href=\"checkOut.php?itemID=" . $row['itemID'] . "\">Check Out</a></td>";
-  }
-  else
-  {
-    echo "<td><a class=\"btn btn-primary\" href=\"checkIn.php?itemID=" . $row['itemID'] . "\">Check In</a></td>";
-  }
   echo "</tr>";
 }
 mysqli_close($dbCon);

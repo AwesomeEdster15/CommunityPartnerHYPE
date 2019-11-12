@@ -47,13 +47,9 @@ while($row = mysqli_fetch_array($result))
 
   if (isset($_SESSION["isAdmin"])) {echo (($_SESSION["isAdmin"]) ?
     "<a type=\"button\" class=\"btn btn-warning\" style=\"margin: 15px;\" href=\"../adminParts/editItem.php?itemID=" . $itemID . "\">Edit " . $itemName . "</a>" : "");}
-  if($row['inStock'] == true)
+  if(isset($_SESSION['loggedin']) == true)
   {
-    echo "<td><a class=\"btn btn-primary\" href=\"checkOut.php?itemID=" . $itemID . "\">Check Out</a></td>";
-  }
-  else
-  {
-    echo "<td><a class=\"btn btn-primary\" href=\"checkIn.php?itemID=" . $itemID . "\">Check In</a></td>";
+    echo "<td><a class=\"btn btn-primary\" href=\"requestItem.php?itemID=" . $itemID . "\">Request Item</a></td>";
   }
   echo "</section>";
 }
@@ -61,26 +57,6 @@ mysqli_close($dbCon);
 
 ?>
 
-        <script>
-          function search() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("searchBar");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("itemTable");
-            tr = table.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
-              td = tr[i].getElementsByTagName("td")[0];
-              if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                  tr[i].style.display = "";
-                } else {
-                  tr[i].style.display = "none";
-                }
-              }
-            }
-          }
-         </script>
 
     </section>
   </div>

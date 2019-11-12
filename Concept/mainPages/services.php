@@ -18,7 +18,10 @@
     <div style="text-align: center">
     <p id='services'> <input type="button" onclick="window.location.href = '../servicesParts/viewAll.php';" value="View All Products"/>
     <div class="section1">
-        <?php if (isset($_SESSION["isAdmin"])) {echo (($_SESSION["isAdmin"]) ? "<p id='services'> <input type=\"button\" onclick=\"window.location.href = '../adminParts/viewReservations.php';\" value=\"View Reservations\"/> </p>" : ''); } ?>
+      <?php if (isset($_SESSION["isAdmin"])) {echo (($_SESSION["isAdmin"]) ? "<p id='services'> <input type=\"button\" onclick=\"window.location.href = '../adminParts/viewReservations.php';\" value=\"View Reservations\"/> </p>" : ''); } ?>
+    </div>
+    <div class="section1">
+      <?php if (isset($_SESSION["loggedin"])) {echo (($_SESSION["loggedin"]) ? "<p id='services'> <input type=\"button\" onclick=\"window.location.href = '../adminParts/viewReservations.php?userName=" . $_SESSION["username"] . "';\" value=\"View My Reservations\"/>" : ''); } ?>
     </div>
   </div>
     </p>

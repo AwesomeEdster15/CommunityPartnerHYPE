@@ -151,9 +151,9 @@ Lucas Winkleman
 
 11/07/2019
   -Lucas & Zach
-     -Reservation -> Users can request
-                  -> Admins can check out/in
-                  -> Must be signed in to request
+     -Reservation -> (Done)Users can request
+                  -> (Done)Admins can check out/in
+                  -> (Done)Must be signed in to request
      -Inquire upon TCP about what they want on the dashboard
    -Brandon & Edward
      -(DONE)My account editable -> Change your password/email etc. (not username)

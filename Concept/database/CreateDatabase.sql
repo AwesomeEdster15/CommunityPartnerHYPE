@@ -30,6 +30,9 @@ CREATE TABLE Patron (
 -- To add the itemName field to the Item table:
 -- ALTER TABLE Item ADD itemName VARCHAR(100);
 
+-- To add the itemName field to the Item table:
+-- ALTER TABLE Reservation ADD status VARCHAR(100);
+
 CREATE TABLE ProductType (
     imageLink VARCHAR(1000),
     productName VARCHAR(100),
@@ -66,6 +69,7 @@ CREATE TABLE Reservation (
     dateOut DATE,
     itemID INTEGER(10),
     expectedReturnDate DATE,
+    status VARCHAR(100),
     PRIMARY KEY (reservationID),
     FOREIGN KEY (userName) REFERENCES Patron(userName),
     FOREIGN KEY (itemID) REFERENCES Item(itemID)

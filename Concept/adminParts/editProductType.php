@@ -129,27 +129,8 @@ else
 }
 
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Capable Kids and Families</title>
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-</head>
-<body>
-  <!------------>
-  <!---HEADER--->
-  <!------------>
-  <div class="header">
-    <!--Logo and Navigation Buttons-->
-    <div>
-      <!--Logo-->
-      <div>
-        <img src="../imgs/CKF-Logo.png" />
-      </div>
-      <!--Navigation Buttons-->
-    </div>
-  </div>
+<?php require "../sharedParts/header.php"; ?>
+
   <!---MAIN----->
   <div class="main">
     <!--Section 1-->
