@@ -1,6 +1,6 @@
 <?php require "../sharedParts/header.php"; 
 
-if (!isset($_SESSION["isAdmin"]))
+if (!isset($_SESSION["isAdmin"]) && !isset($_GET['userName']))
 {
 	header("Location: ../accountParts/login.php");
 }
