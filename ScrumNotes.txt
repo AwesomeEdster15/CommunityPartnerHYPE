@@ -155,6 +155,7 @@ Lucas Winkleman
                   -> (Done)Admins can check out/in
                   -> (Done)Must be signed in to request
      -Inquire upon TCP about what they want on the dashboard
+     -Inquire about homepage wants
    -Brandon & Edward
      -(DONE)My account editable -> Change your password/email etc. (not username)
      -(DONE)Move the sign out button
