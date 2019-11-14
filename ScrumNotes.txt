@@ -172,3 +172,28 @@ Lucas Winkleman
         -Motivational quote of the day in Footer (Priority #1)
         -Look into automated emails (Not a Priority)
         -Easter Eggs (Priority #6)
+
+
+11/14/2019
+  -Paul
+    -Fix the Damn Footer, please
+    -Sort tables by clicking column headers
+    -Implement Reporting on a dashboard page
+      -> item most requested chart
+  -Brendan
+    -Image links to product links for USERS
+    -Product name links to product page for ADMINS
+    -Limit number of rows in a table, many pages per table
+  -Zach
+    -Get customer feedback on current Application
+      -> Home Page info?
+      -> How should tables be sorted?
+      -> What would they like to see on Dashboards?
+  -Lucas
+    -User request by Type
+    -Admin checkout by Item
+  -Brandon
+    -Look into automated email reminders
+      -to Users before something it due (5 Days)
+  -Edward
+    -Secure Admin pages
