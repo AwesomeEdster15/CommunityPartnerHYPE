@@ -166,7 +166,7 @@ Lucas Winkleman
 		 -figure out how to remove admins
    -Paul & Brendan
      -Reports -> what is check out most often etc.
-     -Update the CSS "more polish. Something modern."
+     -(DONE - sorta)Update the CSS "more polish. Something modern."
      -Image links to product links
      -Product name links to product page for ADMINS
         -Motivational quote of the day in Footer (Priority #1)

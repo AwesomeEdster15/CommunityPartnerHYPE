@@ -30,7 +30,7 @@ require_once "../database/config.php";
 
     <!--Section 2-->
     <section>
-			<input type='text' id='searchBar' onkeyup="search()" name='username' class='form-control' value="<?php echo $username; ?>">
+			<input type='text' id='searchBar' onkeyup="search()" placeholder="<?php echo $_SESSION["username"]; ?>">
 			<table id='itemTable'>
     		<tr class="adminTable">
     			<th>userName</th>
@@ -122,24 +122,24 @@ require_once "../database/config.php";
 					}
     		?>
 			<script>
-				function search() 
+				function search()
 				{
 					var input, filter, table, tr, td, i, txtValue;
 					input = document.getElementById("searchBar");
 					filter = input.value.toUpperCase();
 					table = document.getElementById("itemTable");
 					tr = table.getElementsByTagName("tr");
-					for (i = 0; i < tr.length; i++) 
+					for (i = 0; i < tr.length; i++)
 					{
 						td = tr[i].getElementsByTagName("td")[0];
-						if (td) 
+						if (td)
 						{
 							txtValue = td.textContent || td.innerText;
-							if (txtValue.toUpperCase().indexOf(filter) > -1) 
+							if (txtValue.toUpperCase().indexOf(filter) > -1)
 							{
 								tr[i].style.display = "";
 							}
-							else 
+							else
 							{
 								tr[i].style.display = "none";
 							}
@@ -147,7 +147,7 @@ require_once "../database/config.php";
 					}
 				}
 			</script>
-	
+
 
     </section>
     <!--Section 3-->
