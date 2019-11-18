@@ -2,6 +2,11 @@
 <?php
 	require_once "../database/config.php";
 
+	if (!isset($_SESSION["isAdmin"]))
+	{
+		header("Location: ../accountParts/login.php");
+	}
+	
 
 $acceptSQL = "UPDATE Reservation SET status='Terminated' WHERE reservationID=" . $_GET['reservationID'] . ";";
 

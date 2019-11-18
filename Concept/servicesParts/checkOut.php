@@ -2,6 +2,11 @@
 <?php
 	require_once "../database/config.php";
 
+	if (!isset($_SESSION["isAdmin"]))
+	{
+		header("Location: ../accountParts/login.php");
+	}
+	
 $updateInStockSQL = "UPDATE Item SET inStock=0 WHERE itemID=?;";
 echo $updateInStockSQL;
 
