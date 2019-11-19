@@ -75,8 +75,9 @@ body{
 }
 
 .main{
-  left: 0;
-  padding: 0 100px;
+  padding-right: 100px;
+  padding-left: 100px;
+  padding-bottom: 40px;
   background: #F0F0F0;
   background-position: center;
   background-size: cover;
@@ -100,15 +101,11 @@ body{
 }
 
 .footer1{
-    margin-top: 40px;
-    padding-top: 40px;
-    background: #F0F0F0;
+    background: rgba(0, 0, 0, .5);
     text-align: center;
     position: fixed;
     bottom: 0;
-    left: 0;
     width: 100%;
-
 }
 
 .button {
