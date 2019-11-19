@@ -36,7 +36,8 @@ while($row = mysqli_fetch_array($result))
 {
 echo "<tr>";
 $image = $row['imageLink'];
-echo "<td> <a href=\"viewProductType.php?productName=" . $row['productName'] . "\"><img src=\"$image\" width=\"100\" height=\"100\" /></a> </td>";
+$product = $row['productLink'];
+echo "<td> <a href=\"$product\"><img src=\"$image\" width=\"100\" height=\"100\" /></a> </td>";
 echo "<td><a href=\"viewProductType.php?productName=" . $row['productName'] . "\">" . $row['productName'] . "</a></td>";
 echo "<td>" . $row['productLink'] . "</td>";
 echo "<td>" . $row['stockCount'] . "</td>";
