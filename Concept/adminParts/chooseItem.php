@@ -3,9 +3,17 @@
   <!---MAIN----->
   <div class="main">
 <?php
-	require_once "../database/config.php";
+  require_once "../database/config.php";
 
-$result = mysqli_query($dbCon,"SELECT * FROM ProductType WHERE ProductName='" . $_GET["productName"] . "';");
+$productName = 0;
+
+$result = mysqli_query($dbCon,"SELECT * FROM Reservation LEFT JOIN Item on Reservation.itemID=Item.itemID WHERE reservationID='" . $_GET["reservationID"] . "';");
+while($row = mysqli_fetch_array($result))
+{
+  $productName = $row['productName'];
+}
+
+$result = mysqli_query($dbCon,"SELECT * FROM ProductType WHERE ProductName='" . $productName . "';");
 
 while($row = mysqli_fetch_array($result))
 {
@@ -13,7 +21,7 @@ while($row = mysqli_fetch_array($result))
   echo "<!--Section 1-->
   <div class=\"section1\">
     <div>
-      <h1 class=\"title\">View type " . $row['productName'] . "</h1>
+      <h1 class=\"title\">Choose " . $row['productName'] . " Item</h1>
     </div>
   </div>
   <!--Section 2-->
@@ -52,17 +60,6 @@ while($row = mysqli_fetch_array($result))
 
 ?>
 
-<section style="text-align: center; margin: 15px;">
-  <?php if (isset($_SESSION["isAdmin"])) {echo (($_SESSION["isAdmin"]) ?
-        "<a type=\"button\" class=\"btn btn-warning\" href=\"../adminParts/editProductType.php?productName=" . $_GET['productName'] . "\">Edit " . $_GET['productName'] . "</a>" : "");} 
-        if(isset($_SESSION['loggedin']) == true)
-        {
-          echo "
-          <td><a class=\"btn btn-primary\" href=\"requestItem.php?productName=" . $_GET['productName'] . "\">Request Item</a></td>";
-        }
-  ?>
-</section>
-
         <script>
           function search() {
             var input, filter, table, tr, td, i, txtValue;
@@ -94,7 +91,7 @@ while($row = mysqli_fetch_array($result))
 
 <?php
 
-$result = mysqli_query($dbCon,"SELECT * FROM Item WHERE ProductName = '" . $_GET["productName"] . "';");
+$result = mysqli_query($dbCon,"SELECT * FROM Item WHERE ProductName = '" . $productName . "';");
 
 echo "<table id=\"itemTable\">
 <tr>
@@ -108,7 +105,7 @@ while($row = mysqli_fetch_array($result))
 {
   $index = $index + 1;
   echo "<tr>";
-  echo "<td><a href=\"viewItem.php?itemID=" . $row['itemID'] . "\">" . $row['itemName'] . "</a></td>";
+  echo "<td><a href=\"acceptReservation.php?itemID=" . $row['itemID'] . "&reservationID=" . $_GET["reservationID"] . "\">" . $row['itemName'] . "</a></td>";
   echo "<td>" . $row['comments'] . "</td>";
   echo "<td>" . $row['inStock'] . "</td>";
   echo "</tr>";
@@ -119,8 +116,6 @@ mysqli_close($dbCon);
 
     </section>
     <section style="text-align: center; margin: 15px;">
-    <?php if (isset($_SESSION["isAdmin"])) {echo (($_SESSION["isAdmin"]) ?
-      "<a type=\"button\" class=\"btn btn-success\" href=\"../adminParts/addItem.php?productName=" . $_GET["productName"] . "\" >Add Items</a>" : "");} ?>
     </section>
   </div>
 

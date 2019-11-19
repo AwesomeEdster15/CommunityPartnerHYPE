@@ -56,7 +56,14 @@ while($row = mysqli_fetch_array($result))
 echo "<tr>";
 echo "<td>" . $row['userName'] . "</td>";
 echo "<td><a href=\"../servicesParts/viewProductType.php?productName=" . $row['productName'] . "\">" . $row['productName'] . "</a></td>";
-echo "<td><a href=\"../servicesParts/viewItem.php?itemID=" . $row['itemID'] . "\">" . $row['itemName'] . "</a></td>";
+if($row['status'] != 'Pending')
+{
+  echo "<td><a href=\"../servicesParts/viewItem.php?itemID=" . $row['itemID'] . "\">" . $row['itemName'] . "</a></td>";
+}
+else
+{
+  echo "<td></td>";
+}
 echo "<td>" . $row['dateIn'] . "</td>";
 echo "<td>" . $row['dateOut'] . "</td>";
 echo "<td>" . $row['expectedReturnDate'] . "</td>";

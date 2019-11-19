@@ -47,10 +47,6 @@ while($row = mysqli_fetch_array($result))
 
   if (isset($_SESSION["isAdmin"])) {echo (($_SESSION["isAdmin"]) ?
     "<a type=\"button\" class=\"btn btn-warning\" style=\"margin: 15px;\" href=\"../adminParts/editItem.php?itemID=" . $itemID . "\">Edit " . $itemName . "</a>" : "");}
-  if(isset($_SESSION['loggedin']) == true)
-  {
-    echo "<td><a class=\"btn btn-primary\" href=\"requestItem.php?itemID=" . $itemID . "\">Request Item</a></td>";
-  }
   echo "</section>";
 }
 mysqli_close($dbCon);
