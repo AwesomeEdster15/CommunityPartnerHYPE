@@ -17,38 +17,39 @@
     </section>
     <!--Section 3-->
     <section>
-<?php
-	require_once "../database/config.php";
+        <?php
+            require_once "../database/config.php";
 
-$result = mysqli_query($dbCon,"SELECT * FROM ProductType");
+            $result = mysqli_query($dbCon,"SELECT * FROM ProductType");
 
-echo "<table id=\"itemTable\">
-<tr>
-<th>Image Link</th>
-<th>Product Name</th>
-<th>Product Link</th>
-<th>Stock Count</th>
-<th>Reusable</th>
-<th>Request Period</th>
-</tr>";
+            echo "<table id=\"itemTable\">
+            <tr>
+            <th>Image Link</th>
+            <th>Product Name</th>
+            <th>Product Link</th>
+            <th>Stock Count</th>
+            <th>Reusable</th>
+            <th>Request Period</th>
+            </tr>";
 
-while($row = mysqli_fetch_array($result))
-{
-echo "<tr>";
-$image = $row['imageLink'];
-echo "<td> <a href=\"viewProductType.php?productName=" . $row['productName'] . "\"><img src=\"$image\" width=\"100\" height=\"100\" /></a> </td>";
-echo "<td><a href=\"viewProductType.php?productName=" . $row['productName'] . "\">" . $row['productName'] . "</a></td>";
-echo "<td>" . $row['productLink'] . "</td>";
-echo "<td>" . $row['stockCount'] . "</td>";
-//echo "<td>" . $row['imageLink'] . "</td>";
-echo "<td>" . $row['reusable'] . "</td>";
-echo "<td>" . $row['requestPeriod'] . "</td>";
-echo "</tr>";
-}
+            while($row = mysqli_fetch_array($result))
+            {
+            echo "<tr>";
+            $image = $row['imageLink'];
+            $product = $row['productLink'];
+            echo "<td> <a href=\"$product\"><img src=\"$image\" width=\"100\" height=\"100\" /></a> </td>";
+            echo "<td><a href=\"viewProductType.php?productName=" . $row['productName'] . "\">" . $row['productName'] . "</a></td>";
+            echo "<td>" . $row['productLink'] . "</td>";
+            echo "<td>" . $row['stockCount'] . "</td>";
+            //echo "<td>" . $row['imageLink'] . "</td>";
+            echo "<td>" . $row['reusable'] . "</td>";
+            echo "<td>" . $row['requestPeriod'] . "</td>";
+            echo "</tr>";
+            }
 
-mysqli_close($dbCon);
-?>
-</table>
+            mysqli_close($dbCon);
+        ?>
+        </table>
 
         <script>
           function search() {
@@ -71,8 +72,8 @@ mysqli_close($dbCon);
           }
          </script>
     </section>
-    <section style="text-align: center; margin: 15px;">
-    <?php if (isset($_SESSION["isAdmin"])) {echo (($_SESSION["isAdmin"]) ? "<a type=\"button\" class=\"btn btn-success\" href=\"../adminParts/addProductType.php\">Add Product Type</a>" : "");} ?>
+    <section style="text-align: center; padding: 15px 0px 15px 0px;">
+        <?php if (isset($_SESSION["isAdmin"])) {echo (($_SESSION["isAdmin"]) ? "<a type=\"button\" class=\"btn btn-success\" href=\"../adminParts/addProductType.php\">Add Product Type</a>" : "");} ?>
     </section>
   </div>
 
