@@ -25,10 +25,10 @@
             echo "<table id=\"itemTable\">
             <tr>
             <th>Image Link</th>
-            <th onclick=\"sortTable(1) \">Product Name</th>
-            <th onclick=\"sortTable(2) \">Stock Count</th>
-            <th onclick=\"sortTable(3) \">Reusable</th>
-            <th onclick=\"sortTable(4) \">Request Period</th>
+            <th onclick=\"sortTable(1) \" style=\"cursor: pointer;\">Product Name</th>
+            <th onclick=\"sortTable(2) \" style=\"cursor: pointer;\">Stock Count</th>
+            <th onclick=\"sortTable(3) \" style=\"cursor: pointer;\">Reusable</th>
+            <th onclick=\"sortTable(4) \" style=\"cursor: pointer;\">Request Period</th>
             </tr>";
 
             while($row = mysqli_fetch_array($result))
