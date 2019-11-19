@@ -40,10 +40,20 @@ while($row = mysqli_fetch_array($result))
   <label>Product Name</label>
   <p><a href=\"../servicesParts/viewProductType.php?productName=" . $row['productName'] . "\">" . $row['productName'] . "</a></p>
   </div>";
-  echo "<div class=\"form-group\" style=\"width: 350px; display: inline-block;\">
-  <label>Item Name</label>
-  <p><a href=\"../servicesParts/viewItem.php?itemID=" . $row['itemID'] . "\">" . $row['itemName'] . "</a></p>
-  </div>";
+  if($row['status'] != 'Pending')
+  {
+    echo "<div class=\"form-group\" style=\"width: 350px; display: inline-block;\">
+    <label>Item Name</label>
+    <p><a href=\"../servicesParts/viewItem.php?itemID=" . $row['itemID'] . "\">" . $row['itemName'] . "</a></p>
+    </div>";
+  }
+  else
+  {
+    echo "<div class=\"form-group\" style=\"width: 350px; display: inline-block;\">
+    <label>Item Name</label>
+    <p></p>
+    </div>";
+  }
   echo "<div class=\"form-group\" style=\"width: 350px; display: inline-block;\">
   <label>Expected Return Date</label>
   <p>" . $row['expectedReturnDate'] . "</p>
@@ -66,7 +76,7 @@ while($row = mysqli_fetch_array($result))
     {
       if($_SESSION['status'] == 'Pending')
       {
-        echo "<a type=\"button\" class=\"btn btn-success\" href=\"../adminParts/acceptReservation.php?reservationID=" . $_GET['reservationID'] . "\">Accept Reservation</a>\n";
+        echo "<a type=\"button\" class=\"btn btn-success\" href=\"../adminParts/chooseItem.php?reservationID=" . $_GET['reservationID'] . "\">Accept Reservation</a>\n";
         echo "<a type=\"button\" class=\"btn btn-danger\" href=\"../adminParts/declineReservation.php?reservationID=" . $_GET['reservationID'] . "\">Decline Reservation</a>\n";
       }
       if($_SESSION['status'] == 'Accepted')
@@ -85,7 +95,7 @@ while($row = mysqli_fetch_array($result))
       }
       if($_SESSION['status'] == 'Declined')
       {
-        echo "<a type=\"button\" class=\"btn btn-success\" href=\"../adminParts/acceptReservation.php?reservationID=" . $_GET['reservationID'] . "\">Accept Reservation</a>\n";
+        echo "<a type=\"button\" class=\"btn btn-success\" href=\"../adminParts/chooseItem.php?reservationID=" . $_GET['reservationID'] . "\">Accept Reservation</a>\n";
         echo "<a type=\"button\" class=\"btn \" style=\"background-color:black; color:white;\" href=\"../adminParts/terminateReservation.php?reservationID=" . $_GET['reservationID'] . "\">Terminate Reservation</a>\n";
       }
     }

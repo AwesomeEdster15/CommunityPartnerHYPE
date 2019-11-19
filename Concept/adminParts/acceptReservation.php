@@ -2,8 +2,12 @@
 <?php
 	require_once "../database/config.php";
 
+	if (!isset($_SESSION["isAdmin"]))
+	{
+		header("Location: ../accountParts/login.php");
+	}
 
-$acceptSQL = "UPDATE Reservation SET status='Accepted' WHERE reservationID=" . $_GET['reservationID'] . ";";
+$acceptSQL = "UPDATE Reservation SET status='Accepted', itemID='" . $_GET['itemID'] . "' WHERE reservationID=" . $_GET['reservationID'] . ";";
 
 if($stmt = mysqli_prepare($dbCon, $acceptSQL)) {
   #Bind variables to prepared statement
@@ -12,7 +16,7 @@ if($stmt = mysqli_prepare($dbCon, $acceptSQL)) {
   #Attempt to execute prepared statement
   if(mysqli_stmt_execute($stmt)) {
     #Redirect to view all items page --- might change this later to go to the product page itself, but it doesn't exist yet
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    header('Location: ../servicesParts/viewReservation.php?reservationID=' . $_GET['reservationID']);
   } else {
     echo "Oops! Something went wrong. Please try again later. :)";
   }

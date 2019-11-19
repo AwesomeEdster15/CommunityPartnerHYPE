@@ -1,6 +1,11 @@
 <?php require "../sharedParts/header.php"; ?>
 <?php
   require_once "../database/config.php";
+
+  if (!isset($_SESSION["isAdmin"]))
+  {
+  	header("Location: ../accountParts/login.php");
+  }
   
 $itemID = "";
 $result = mysqli_query($dbCon,"SELECT itemID FROM Reservation WHERE reservationID=" . trim($_GET['reservationID']) . ";");
