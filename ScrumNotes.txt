@@ -179,7 +179,9 @@ Lucas Winkleman
     -(DONE) Fix the Damn Footer, please
     -(DONE) Sort tables by clicking column headers
     -Implement Reporting on a dashboard page
-      -> item most requested chart
+      -> Search field for username and\or email to bring up reservations
+      -> Sort items by category
+      -> Reports on home page
   -Brendan
     -Image links to product links for USERS
     -Product name links to product page for ADMINS
