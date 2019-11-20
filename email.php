@@ -8,6 +8,11 @@
 	# Constant variables
 	$daysNotice = 5;
 
+	# Create the admin email address to prevent bots from reading and spamming the address.	
+	$adminName = "rollacommunity";
+	$adminDomain = "gmail.com";
+	$adminEmail = $adminName . "@" . $adminDomain;
+
 	# Preset variables
   $email = "";
   $username = "";
@@ -77,10 +82,20 @@
 			if(!empty($email) && !empty($username) && !empty($product) && !empty($dueDate))
 			{
 				if($days == 0) {
-					$message = "This is a not so friendly reminder that the $product is due today. Please return this item as soon as you can!";
+					$message = "This is a not so friendly reminder that the $product is due today!";
 					$signOff = "Thank you,\nCommunity Partnership of Rolla";
 					$email_body = "$username,\n\n" . "$message\n\n" . "$signOff\n";
 					$subject = "$product is due today\n";
+
+					# send a copy of the email to the admins as well
+					if(mail($adminEmail,$subject, $email_body)) {
+						error_log("$today Email reminder successfully sent to admins for $username's past due $product.\n", 3, "/home/community/.msmtp.log");
+						print("$today Email reminder successfully sent to admins. Check the logs for more information.<br>\n");
+					} else {
+						error_log("An error occured while sending email\n", 3, "/home/community/.msmtp.log");
+						print("$today Email failed to send to admins. Check the logs for more information.<br>\n");
+					}
+
 				} else {
 					$message = "This is a friendly reminder that the $product is due in $daysNotice days. Please return this item at your earliest convience."; 
 					$signOff = "Thank you,\nCommunity Partnership of Rolla";
@@ -91,17 +106,17 @@
 				# attempt to send an email, and report the outcome
 				if(mail($email,$subject, $email_body)) {
 					error_log("$today Email reminder successfully sent to $username at $email for $product due on $dueDate\n", 3, "/home/community/.msmtp.log");
-					print("$today Email reminder successfully sent to $username at $email for $product due on $dueDate <br>\n");
+					print("$today Email reminder successfully sent. Check the logs for more information.<br>\n");
 				} else {
 					error_log("An error occured while sending email\n", 3, "/home/community/.msmtp.log");
-					print("$today Email failed to send to $username at $email for $product due on $dueDate <br>\n");
+					print("$today Email failed to send. Check the logs for more information.<br>\n");
 				}
 			}
 			# report any attempts to send an email without full information
 			else
 			{ 
 				error_log("form failure\n", 3, "/home/community/.msmtp.log");
-				print("form failed");
+				print("$today Form failed");
 			}
 
 			#reset the variables for the while loop
