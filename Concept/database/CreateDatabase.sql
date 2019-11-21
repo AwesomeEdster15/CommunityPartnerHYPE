@@ -23,7 +23,6 @@ CREATE TABLE Patron (
 -- ALTER TABLE ProductType Change productLine productLink VARCHAR(100)
 
 -- To add auto-increment to the id fields, run this:
--- ALTER TABLE ProductKeywords CHANGE keywordID keywordID INT(10) NOT NULL AUTO_INCREMENT;
 -- ALTER TABLE Item CHANGE itemID itemID INT(10) NOT NULL AUTO_INCREMENT;
 -- ALTER TABLE Reservation CHANGE reservationID reservationID INT(10) NOT NULL AUTO_INCREMENT;
 
@@ -40,16 +39,8 @@ CREATE TABLE ProductType (
     stockCount INTEGER(10),
     reusable BOOLEAN,
     requestPeriod INTEGER,
+    productKeyword VARCHAR(100),
     PRIMARY KEY (productName)
-);
-
-CREATE TABLE ProductKeywords (
-    keywordID INTEGER(10) NOT NULL AUTO_INCREMENT,
-    productLine VARCHAR(100),
-    keyword VARCHAR(100),
-    productName VARCHAR(100),
-    PRIMARY KEY (keywordID),
-    FOREIGN KEY (productName) REFERENCES ProductType(productName)
 );
 
 CREATE TABLE Item (
