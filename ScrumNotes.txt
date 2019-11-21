@@ -178,7 +178,7 @@ Lucas Winkleman
   -Paul
     -(DONE) Fix the Damn Footer, please
     -(DONE) Sort tables by clicking column headers
-    -Implement Reporting on a dashboard page
+    -(IP)Implement Reporting on a dashboard page
       ->(DONE) Search field for username and\or email to bring up reservations
       ->(DONE) Sort items by category
       -> Reports on home page
@@ -187,19 +187,19 @@ Lucas Winkleman
 *** I WROTE THIS HERE SO THAT EDWARD WOULD SEE IT DURING THE MEETING. YOUR
 *** SHOE IS UNTIED. 
   -Brendan
-    -Image links to product links for USERS
-    -Product name links to product page for ADMINS
-    -Limit number of rows in a table, many pages per table
+    -(IP)Image links to product links for USERS
+    -(DONE)Product name links to product page for ADMINS
+    -(IP)Limit number of rows in a table, many pages per table
   -Zach
-    -Get customer feedback on current Application
+    -(DONE)Get customer feedback on current Application
       -> Home Page info?
       -> How should tables be sorted?
       -> What would they like to see on Dashboards?
   -Lucas
-    -User request by Type
-    -Admin checkout by Item
+    -(DONE)User request by Type
+    -(DONE)Admin checkout by Item
   -Brandon
-    -Look into automated email reminders
-      -to Users before something it due (5 Days)
+    -(DONE)Look into automated email reminders
+      		-to Users before something it due (5 Days)
   -Edward
     -(DONE)Secure Admin pages
