@@ -203,3 +203,18 @@ Lucas Winkleman
       		-to Users before something it due (5 Days)
   -Edward
     -(DONE)Secure Admin pages
+    
+    
+ 11/21/19
+   -UX Team
+     -Reports Page
+     -Limit Number of Rows per page per table
+     -Reservation Table upgrade
+  -Lucas
+    -Relax, you've done enough
+  -Zach
+    -Work on Presentation
+  -Brandon
+    -Get a job, or you'll be poor
+  -Edward
+    -Work on Presentation
