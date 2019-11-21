@@ -179,9 +179,13 @@ Lucas Winkleman
     -(DONE) Fix the Damn Footer, please
     -(DONE) Sort tables by clicking column headers
     -Implement Reporting on a dashboard page
-      -> Search field for username and\or email to bring up reservations
-      -> Sort items by category
+      ->(DONE) Search field for username and\or email to bring up reservations
+      ->(DONE) Sort items by category
       -> Reports on home page
+*** SHOULD WE REPLACE THE PRODUCT LINK FIELD (WHEN ADDING A NEW PRODUCT TYPE)
+*** WITH A KEYWORD FIELD? CURRENTLY, THERE IS NO WAY TO ENTER KEYWORD.
+*** I WROTE THIS HERE SO THAT EDWARD WOULD SEE IT DURING THE MEETING. YOUR
+*** SHOE IS UNTIED. 
   -Brendan
     -Image links to product links for USERS
     -Product name links to product page for ADMINS

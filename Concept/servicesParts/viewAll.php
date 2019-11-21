@@ -7,7 +7,8 @@
       <div>
         <h1 class="title">Products List</h1>
         <p>
-          This is where you will be able to view all products.
+          This is where you can view all of our Products. <br>
+          Click the column headers to sort the table or use the search field to search by Product Name.
         </p>
       </div>
     </div>
@@ -29,20 +30,21 @@
             <th onclick=\"sortTable(2) \" style=\"cursor: pointer;\">Stock Count</th>
             <th onclick=\"sortTable(3) \" style=\"cursor: pointer;\">Reusable</th>
             <th onclick=\"sortTable(4) \" style=\"cursor: pointer;\">Request Period</th>
+            <th onclick=\"sortTable(5) \" style=\"cursor: pointer;\">Keyword</th>
             </tr>";
 
             while($row = mysqli_fetch_array($result))
             {
-            echo "<tr>";
-            $image = $row['imageLink'];
-            $product = $row['productLink'];
-            echo "<td> <a href=\"$product\"><img src=\"$image\" width=\"100\" height=\"100\" /></a> </td>";
-            echo "<td><a href=\"viewProductType.php?productName=" . $row['productName'] . "\">" . $row['productName'] . "</a></td>";
-            echo "<td>" . $row['stockCount'] . "</td>";
-            //echo "<td>" . $row['imageLink'] . "</td>";
-            echo "<td>" . $row['reusable'] . "</td>";
-            echo "<td>" . $row['requestPeriod'] . "</td>";
-            echo "</tr>";
+                echo "<tr>";
+                $image = $row['imageLink'];
+                $product = $row['productLink'];
+                echo "<td> <a href=\"$product\"><img src=\"$image\" width=\"100\" height=\"100\" /></a> </td>";
+                echo "<td><a href=\"viewProductType.php?productName=" . $row['productName'] . "\">" . $row['productName'] . "</a></td>";
+                echo "<td>" . $row['stockCount'] . "</td>";
+                echo "<td>" . $row['reusable'] . "</td>";
+                echo "<td>" . $row['requestPeriod'] . "</td>";
+                echo "<td>" . $row['productKeyword'] . "</td>";
+                echo "</tr>";
             }
 
             mysqli_close($dbCon);
