@@ -218,3 +218,4 @@ Lucas Winkleman
     -Get a job, or you'll be poor
   -Edward
     -Work on Presentation
+    -Fix email + phone formatting
