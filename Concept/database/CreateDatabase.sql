@@ -32,6 +32,13 @@ CREATE TABLE Patron (
 -- To add the itemName field to the Item table:
 -- ALTER TABLE Reservation ADD status VARCHAR(100);
 
+-- To drop ProductKeywords
+-- DROP TABLE ProductKeywords;
+
+-- To add productKeyword to ProductType
+-- ALTER TABLE ProductType ADD productKeyword VARCHAR(100);
+
+
 CREATE TABLE ProductType (
     imageLink VARCHAR(1000),
     productName VARCHAR(100),
