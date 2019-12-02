@@ -12,7 +12,21 @@
       </div>
     </div>
     <!--Section 2-->
-    <section>
+    <section onload="myFunction()">
+        <script src="bar.js">
+            function myFunction() {
+                var data = [
+                  {label: 'Jan', value: 123},
+                  {label: 'Feb', value: 11},
+                  {label: 'March', value: 55},
+                  {label: 'April', value: 893},
+                  {label: 'May', value: 343}
+                ];
+                var barChart = new BarChart("chart", 500, 500, data);
+            }
+        </script>
+        <div id="chart">Bar Chart Goes here...?</div>
+
     </section>
     <!--Section 3-->
     <section>
