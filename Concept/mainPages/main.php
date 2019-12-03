@@ -1,4 +1,19 @@
 <?php require "../sharedParts/header.php"; ?>
+<?php require_once "../database/config.php"; ?>
+<?php
+
+  $pendingSQL = "SELECT COUNT(reservationID) FROM Reservation WHERE status = 'Pending';";
+  $pendingResult = mysqli_query($dbCon, $pendingSQL);
+
+  $declinedSQL = "SELECT COUNT(reservationID) FROM Reservation WHERE status = 'Declined';";
+  $declinedResult = mysqli_query($dbCon, $declinedSQL);
+
+  $acceptedSQL = "SELECT COUNT(reservationID) FROM Reservation WHERE status = 'Accepted';";
+  $acceptedResult = mysqli_query($dbCon, $acceptedSQL);
+
+  $checkedOutSQL = "SELECT COUNT(reservationID) FROM Reservation WHERE status = 'Checked Out';";
+  $checkedOutResult = mysqli_query($dbCon, $checkedOutSQL);
+?>
 
   <!---MAIN----->
   <div class="main">
@@ -7,27 +22,55 @@
       <div>
         <h1 class="title">Capable Kids and Families</h1>
         <p>
-          This is a short description of what we want to tell the world.
         </p>
       </div>
     </div>
-    <!--Section 2-->
-    <section onload="myFunction()">
-        <script src="bar.js">
+    <?php if(isset($_SESSION["isAdmin"]))
+      {
+        echo "<!--Section 2-->
+        <script src=\"bar.js\"></script>
+        <script>
             function myFunction() {
-                var data = [
-                  {label: 'Jan', value: 123},
-                  {label: 'Feb', value: 11},
-                  {label: 'March', value: 55},
-                  {label: 'April', value: 893},
-                  {label: 'May', value: 343}
-                ];
-                var barChart = new BarChart("chart", 500, 500, data);
+                var data = [";
+                while($row = mysqli_fetch_array($pendingResult))
+                {
+                  echo '{label: \'Pending\'' . ', value: ' . $row['COUNT(reservationID)'] . '},
+                  ';
+                }
+
+                while($row = mysqli_fetch_array($declinedResult))
+                {
+                  echo '{label: \'Declined\'' . ', value: ' . $row['COUNT(reservationID)'] . '},
+                  ';
+                }
+
+                while($row = mysqli_fetch_array($acceptedResult))
+                {
+                  echo '{label: \'Accepted\'' . ', value: ' . $row['COUNT(reservationID)'] . '},
+                  ';
+                }
+
+                while($row = mysqli_fetch_array($checkedOutResult))
+                {
+                  echo '{label: \'Checked Out\'' . ', value: ' . $row['COUNT(reservationID)'] . '},
+                  ';
+                }
+                echo "];
+                var barChart = new BarChart(\"chart\", 500, 500, data);
+            }
+            window.onload = function()
+            {
+              myFunction();
             }
         </script>
-        <div id="chart">Bar Chart Goes here...?</div>
 
-    </section>
+        <section style=\"text-align: center;\">
+          <div id=\"chart\"></div>
+          <!-- Apparently onload isn't a valid option for div tags -->
+          <h3>Reservations</h3>
+        </section>";
+      }
+    ?>
     <!--Section 3-->
     <section>
     </section>

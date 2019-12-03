@@ -53,7 +53,7 @@ BarChart.prototype.setChartParameters = function () {
   var chart = this;
 
   // Axis Configurations
-  chart.axisRatio = 10; // in terms of percentage
+  chart.axisRatio = 5; // in terms of percentage
   chart.verticalMargin = (chart.height * chart.axisRatio) / 100;
   chart.horizontalMargin = (chart.width * chart.axisRatio) / 100;
   chart.axisColor = '#b1b1b1';
@@ -136,7 +136,7 @@ BarChart.prototype.preapareData = function () {
   chart.horizontalAxisWidth = chart.width - 2 * chart.horizontalMargin // left and right margins
 
   // Label Specifications
-  chart.verticalUpperBound = Math.ceil(chart.maxValue / 10) * 10;
+  chart.verticalUpperBound = chart.maxValue //Math.ceil(chart.maxValue / 10) * 10;
   chart.verticalLabelFreq = chart.verticalUpperBound / chart.itemsNum;
   chart.horizontalLabelFreq = chart.horizontalAxisWidth / chart.itemsNum;
 };
