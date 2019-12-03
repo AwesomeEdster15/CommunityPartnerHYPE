@@ -1,14 +1,3 @@
-/**
- *
- * bar.js
- * simple, elegant bar chart library
- * 02.03.2018 - version 1.0
- *
- *
- * Copyright 2018 Aviv Levi
- *
- */
-
 'use strict';
 
 function BarChart(targetId, width, height, data){
@@ -53,23 +42,23 @@ BarChart.prototype.setChartParameters = function () {
   var chart = this;
 
   // Axis Configurations
-  chart.axisRatio = 5; // in terms of percentage
-  chart.verticalMargin = (chart.height * chart.axisRatio) / 100;
-  chart.horizontalMargin = (chart.width * chart.axisRatio) / 100;
-  chart.axisColor = '#b1b1b1';
-  chart.axisWidth = 0.75;
+  chart.axisRatio = 4; // in terms of percentage
+  chart.verticalMargin = (chart.height * chart.axisRatio) / 50;
+  chart.horizontalMargin = (chart.width * chart.axisRatio) / 50;
+  chart.axisColor = '#000000';
+  chart.axisWidth = 1;
 
   // Label Configurations
   chart.fontRatio = 3; // in terms of percentage
-  chart.fontFamily = 'times';
+  chart.fontFamily = 'sans-serif';
   chart.fontStyle = 'normal';
   chart.fontWeight = '300';
-  chart.fontColor = '#666';
-  chart.verticalFontSize = (chart.height * chart.fontRatio) / 100;
-  chart.horizontalFontSize = (chart.width * chart.fontRatio) / 100;
+  chart.fontColor = '#3b3b3b';
+  chart.verticalFontSize = (chart.height * chart.fontRatio) / 60;
+  chart.horizontalFontSize = (chart.width * chart.fontRatio) / 60;
 
   // Guideline Configurations
-  chart.guidelineColor = '#e5e5e5';
+  chart.guidelineColor = '#dbdbdb';
   chart.guidelineWidth = 0.5;
 };
 
@@ -137,7 +126,7 @@ BarChart.prototype.preapareData = function () {
 
   // Label Specifications
   chart.verticalUpperBound = chart.maxValue //Math.ceil(chart.maxValue / 10) * 10;
-  chart.verticalLabelFreq = chart.verticalUpperBound / chart.itemsNum;
+  chart.verticalLabelFreq = 1
   chart.horizontalLabelFreq = chart.horizontalAxisWidth / chart.itemsNum;
 };
 
@@ -298,7 +287,7 @@ BarChart.prototype.drawBars = function () {
   for(var i = 0; i < chart.itemsNum; i++){
 
     var color = chart.createRandomRGBColor();
-    var fillOpacity = '0.3';
+    var fillOpacity = '.5';
     var fillColor = 'rgba('+ color.r + ', ' + color.g  + ', ' + color.b + ', ' + fillOpacity +')';
     var borderColor = 'rgba('+ color.r + ', ' + color.g  + ', ' + color.b + ')';
 

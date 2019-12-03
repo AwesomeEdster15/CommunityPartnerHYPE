@@ -56,7 +56,7 @@
                   ';
                 }
                 echo "];
-                var barChart = new BarChart(\"chart\", 500, 500, data);
+                var barChart = new BarChart(\"chart\", 1200, 300, data);
             }
             window.onload = function()
             {
@@ -67,7 +67,7 @@
         <section style=\"text-align: center;\">
           <div id=\"chart\"></div>
           <!-- Apparently onload isn't a valid option for div tags -->
-          <h3>Reservations</h3>
+          <h3>Current Status of Reservations</h3>
         </section>";
       }
     ?>

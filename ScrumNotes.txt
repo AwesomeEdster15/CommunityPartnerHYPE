@@ -185,7 +185,7 @@ Lucas Winkleman
 *** SHOULD WE REPLACE THE PRODUCT LINK FIELD (WHEN ADDING A NEW PRODUCT TYPE)
 *** WITH A KEYWORD FIELD? CURRENTLY, THERE IS NO WAY TO ENTER KEYWORD.
 *** I WROTE THIS HERE SO THAT EDWARD WOULD SEE IT DURING THE MEETING. YOUR
-*** SHOE IS UNTIED. 
+*** SHOE IS UNTIED.
   -Brendan
     -(IP)Image links to product links for USERS
     -(DONE)Product name links to product page for ADMINS
@@ -203,14 +203,14 @@ Lucas Winkleman
       		-to Users before something it due (5 Days)
   -Edward
     -(DONE)Secure Admin pages
-    
-    
+
+
  11/21/19
    -UX Team
-     -Reports Page
+     -(DONE)Reports Page
      -Limit Number of Rows per page per table
-     -Reservation Table upgrade
-     	-Add email to reservation table
+     -(DONE)Reservation Table upgrade
+     	-(N/A)Add email to reservation table
   -Lucas
     -Relax, you've done enough
   -Zach
